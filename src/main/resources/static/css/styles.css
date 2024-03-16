@@ -1,0 +1,400 @@
+@font-face {
+    font-family: Neutraface;
+    font-weight: bold;
+    src: url("../font/Neutraface2Text-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Neutraface;
+    font-weight: normal;
+    src: url("../font/Neutraface2Text-Light.otf") format("opentype");
+}
+
+body{
+    font-family: Neutraface, sans-serif;
+    font-weight: normal;
+}
+
+/* Header Styles */
+.page-header {
+    position: fixed;
+    width: 99%;
+    background-color:  #d6001c;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.page-header h1 {
+    margin-left: 20px;
+    margin-top: 20px;
+    color: white;
+}
+
+/* Navigation Styles */
+nav {
+    overflow: hidden;
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+nav li {
+    display: inline-block;
+    font-family: Neutraface, sans-serif;
+    font-weight: bold;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+/* Fade-in animation for hovering over menu options*/
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start with opacity 0 */
+    }
+    to {
+        opacity: 1; /* End with opacity 1 */
+    }
+}
+
+/* Navigation Link Hover Styles */
+nav a:hover {
+    background-color: black;
+    color: white;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Current Page Link Styles */
+nav li a.current {
+    color: white;
+    font-family: Neutraface, sans-serif;
+    font-weight: bold;
+}
+
+/* Override hover effect in the current page */
+nav a.current:hover {
+    background-color: transparent;
+    color: white;
+    animation: none;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: white;
+    background-color: #000;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #d6001c;
+    color: white;
+}
+
+
+/* Styles for hamburger icon */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    padding: 20px;
+    color: white;
+    font-size: 24px;
+}
+
+.exit-button {
+    display: none;
+}
+
+@media only screen and (max-width: 993px) {
+
+    /* Hide the regular nav */
+    nav {
+        display: none;
+    }
+
+    /* Exit button styles */
+    .exit-button {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 40px;
+        color: black;
+        cursor: pointer;
+    }
+
+    /* Show the hamburger menu icon */
+    .menu-icon {
+        display: block;
+    }
+
+    /* Show the menu when the hamburger icon is clicked */
+    .menu.open {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%;
+        height: 100%;
+        background-color: #d6001c;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        padding-top: 80px;
+        transition: transform 0.3s ease;
+        transform: translateX(100%);
+    }
+
+    /* Slide in menu animation */
+    .menu.open.active {
+        transform: translateX(0);
+    }
+
+
+    .menu.open ul {
+        display: block;
+        text-align: center;
+    }
+
+    .menu.open li {
+        display: block;
+        margin-left: 20px;
+    }
+
+    .menu.open a {
+        display: block;
+        padding: 20px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .menu.open a button {
+        padding: 20px;
+    }
+
+
+    .dropdown-content {
+        width: 80%;
+    }
+
+    .login {
+        padding: 20px;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .location {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .location > div {
+        margin-bottom: 20px;
+    }
+}
+
+/* Login button styles */
+.login-button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-family: Neutraface;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.login-button:hover {
+    background-color: #454343;
+}
+
+/* Adjust margin between menu items */
+nav li:not(:last-child) {
+    margin-right: 20px;
+}
+
+
+.hero img{
+    width: 100%;
+    opacity: 0.5;
+}
+
+/* Styles for the main headline area */
+.main-headline {
+    position: absolute;
+    top: 63%;
+    left: 33%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    z-index: 1;
+}
+
+.main-headline h1 {
+    margin-bottom: 0px;
+    font-size: 90px;
+    color: #000;
+}
+
+.main-headline h2 {
+    font-size: 41px;
+    margin-bottom: 0px;
+}
+
+.main-headline h4 {
+    font-size: 29px;
+    margin-bottom: 5px;
+}
+
+.main-headline h2,
+.main-headline h4 {
+    margin-top: 0;
+    color: #000;
+}
+
+.main-headline span {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn-learn-more {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #d6001c;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    width: 120px;
+    font-size: 25px;
+    font-family: Neutraface, sans-serif;
+    font-weight: normal;
+}
+
+.btn-learn-more:hover{
+    background-color: #000;
+}
+
+@media only screen and (max-width: 1300px) {
+    .main-headline {
+        top: 30%; /* Adjust vertical position */
+        left: 50%; /* Adjust horizontal position */
+        transform: translate(-50%, -50%); /* Recenter the headline */
+        text-align: center; /* Center align the text */
+        padding: 0 20px; /* Add padding to prevent text overlap */
+    }
+
+    .main-headline h1 {
+        font-size: 50px;
+    }
+
+    .main-headline h2 {
+        font-size: 25px;
+    }
+
+    .main-headline h4 {
+        font-size: 18px;
+    }
+
+    .btn-learn-more {
+        display: block;
+        margin: 20px auto;
+        padding: 8px 16px;
+        font-size: 16px;
+        width: 120px;
+    }
+
+    .hero img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+footer{
+    background-color: #454343;
+}
+
+.location {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: white;
+    background-color: #454343;
+}
+
+.location span {
+    font-size: 20px;
+}
+
+.social-media ul {
+    margin-top: 0px;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.social-media ul li {
+    margin-right: 10px;
+}
+
+.social-media ul li:last-child {
+    margin-right: 0;
+}
+
+.social-media ul li a img {
+    width: 30px;
+    height: auto;
+    padding: 3px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.copyright{
+    display: block;
+    padding: 15px 40px 20px;
+    background-color: #000;
+    color: white;
+    text-align: right;
+}

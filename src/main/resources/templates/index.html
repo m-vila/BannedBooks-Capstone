@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banned Books - Home</title>
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+<!-- Header and nav bar -->
+<header class="page-header">
+    <h1>Banned Books</h1>
+    <div class="menu-icon">&#9776;</div>
+    <nav class="menu">
+        <div class="exit-button">&times;</div>
+        <ul>
+            <li><a href="index.html" class="current">HOME</a></li>
+            <li><a href="about.html">ABOUT PEN AMERICA</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">FESTIVAL & EVENTS</a>
+                <div class="dropdown-content">
+                    <a href="#">Banned Books Week 2024</a>
+                    <a href="#">2024 PEN America Literary Gala</a>
+                </div>
+            </li>
+            <li><a href="contact.html">GIVE</a></li>
+            <li class="login"><a class="login-button" th:href="@{/login}"> LOGIN</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Main section with hero image -->
+<main>
+    <div class="main-headline">
+        <h1>BANNED BOOKS</h1>
+        <h2>The Books They Don't Want You to Read</h2>
+        <h4>Discover Stories That Defy Censorship and Ignite Controversy</h4>
+        <a href="#" class="btn-learn-more">Learn More</a>
+    </div>
+    <section class="hero">
+        <img src="https://media.cnn.com/api/v1/images/stellar/prod/230420104537-book-ban-schools-pen-america-reaj.jpg?c=16x9&q=h_833,w_1480,c_fill" alt="banned books covers">
+    </section>
+</main>
+
+
+<!-- Footer -->
+<footer>
+    <div class="location">
+        <div>
+            <address>
+                <span>PEN America</span>
+                <br>588 Broadway, Suite 303
+                <br>New York, NY 10012
+            </address>
+        </div>
+        <div>
+            <address>
+                <span>PEN America Los Angeles</span>
+                <br>1370 N. St Andrews Place
+                <br>Los Angeles, CA 90028
+            </address>
+        </div>
+        <div>
+            <address>
+                <span>PEN America Washington, D.C.</span>
+                <br>1100 13th Street NW, Suite 800
+                <br>Washington, D.C. 20005
+            </address>
+        </div>
+        <div class="social-media">
+            <ul>
+                <li><a href="https://twitter.com/PENamerica"><img src="/img/fa-x.png" alt="X favicon"></a></li>
+                <li><a href="https://www.facebook.com/PENamerica/"><img src="/img/fa-fa.png" alt="Facebook favicon"></a></li>
+                <li><a href="https://www.instagram.com/penamerica/"><img src="/img/fa-ins.jpeg" alt="Instagram favicon"></a></li>
+                <li><a href="https://www.youtube.com/penamericancenter"><img src="/img/fa-you.jpeg" alt="Youtube favicon"></a></li>
+            </ul>
+        </div>
+    </div>
+    <p class="copyright">Copyright &copy; 2024 PEN America. All rights reserved</p>
+</footer>
+
+<!-- External JS script -->
+<script src="/js/script.js"></script>
+</body>
+</html>
