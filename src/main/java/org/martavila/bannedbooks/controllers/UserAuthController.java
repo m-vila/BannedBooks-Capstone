@@ -20,17 +20,21 @@ public class UserAuthController {
 
     @Autowired
     public UserAuthController(UserService userService)    {
+
         this.userService = userService;
     }
+
     //Method to handle the home (index.html is home) page request
     @GetMapping("/index")
     public String home() {
+
         return "index";
     }
 
     //Method handles the login request
     @GetMapping("/login")
     public String login() {
+
         return "login";
     }
 
@@ -74,6 +78,14 @@ public class UserAuthController {
         model.addAttribute("users", users);
 
         return "users";
+
+    }
+
+    //Method is used to handle a list of books
+    @GetMapping("/books")
+    public String books(Model model) {
+
+        return "books";
 
     }
 }

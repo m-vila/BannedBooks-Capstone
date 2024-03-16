@@ -25,13 +25,14 @@ public class SpringSecurity {
                                 .requestMatchers("/register/**").permitAll()
                                 .requestMatchers("/css/**", "/js/**", "/img/**", "/font/**").permitAll()
                                 .requestMatchers("/index").permitAll()
+                                .requestMatchers("/books").permitAll()
                                 .requestMatchers("/users").hasRole("ADMIN")
                 )
                 .formLogin(
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/users")
+                                .defaultSuccessUrl("/books")
                                 .permitAll()
                 ).logout(
                         logout -> logout
