@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/index}">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/books}">Book List</a>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/login}">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br /><br /><br />
+<div class="container">
+    <div class="row col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center">Book Registration</h2>
+            </div>
+            <div th:if="${param.success}">
+                <div class="alert alert-info">
+                    You have successfully registered a new banned book
+                </div>
+            </div>
+            <div class="card-body">
+                <form
+                        method="post"
+                        role="form"
+                        th:action="@{/book-registration/save}"
+                        th:object="${book}"
+                >
+                    <div class="form-group mb-3">
+                        <label class="form-label">ISBN</label>
+                        <input
+                                class="form-control"
+                                id="isbn"
+                                name="isbn"
+                                placeholder="Enter the book's ISBN, make sure it is the ISBN-13 type"
+                                th:field="*{isbn}"
+                                type="text"
+                        />
+                        <p th:errors = "*{isbn}" class="text-danger"
+                           th:if="${#fields.hasErrors('isbn')}"></p>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">Title</label>
+                        <input
+                                class="form-control"
+                                id="title"
+                                name="title"
+                                placeholder="Enter the book's title"
+                                th:field="*{title}"
+                                type="text"
+                        />
+                        <p th:errors = "*{title}" class="text-danger"
+                           th:if="${#fields.hasErrors('title')}"></p>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">Author</label>
+                        <input
+                                class="form-control"
+                                id="author"
+                                name="author"
+                                placeholder="Enter the book's author"
+                                th:field="*{author}"
+                                type="text"
+                        />
+                        <p th:errors = "*{author}" class="text-danger"
+                           th:if="${#fields.hasErrors('author')}"></p>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">Year</label>
+                        <input
+                                class="form-control"
+                                id="number"
+                                name="number"
+                                placeholder="Enter the year it was first published"
+                                th:field="*{year}"
+                                type="number"
+                        />
+                        <p th:errors = "*{year}" class="text-danger"
+                           th:if="${#fields.hasErrors('year')}"></p>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                        <span>Already saved? <a th:href="@{/books}">Check the full list of banned books here</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

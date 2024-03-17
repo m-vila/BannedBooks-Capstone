@@ -39,38 +39,38 @@ public class UserAuthController {
     }
 
     //Method to handle the users registration form request
-    @GetMapping("/register")
+    @GetMapping("/user-registration")
     public String showRegistrationForm(Model model) {
 
         UserDTO user = new UserDTO();
         model.addAttribute("user", user);
 
-        return "register";
+        return "user-registration";
     }
 
     //Method to handle user registration from submit request
-    @PostMapping("/register/save")
+    @PostMapping("/user-registration/save")
     public String registration(@Valid @ModelAttribute("user") UserDTO userDto, BindingResult result,
                                Model model) {
         User existingUser = userService.findUserByEmail(userDto.getEmail());
 
         if (existingUser != null && existingUser.getEmail() != null && !existingUser.getEmail().isEmpty()) {
-            result.rejectValue("email", null, "There is already an account registered with the same email");
+            result.rejectValue("email", null, "There is already an account registered under the same email");
         }
 
         if (result.hasErrors()) {
             model.addAttribute("user", userDto);
 
-            return "/register";
+            return "user-registration";
         }
 
         userService.saveUser(userDto);
 
-        return "redirect:/register?success";
+        return "redirect:/user-registration?success";
 
     }
 
-    //Method is used to handle a list of users
+    //Method is used to handle the full list of users
     @GetMapping("/admin-dashboard")
     public String users(Model model) {
         List<UserDTO> users = userService.findAllUsers();
@@ -78,7 +78,6 @@ public class UserAuthController {
         model.addAttribute("users", users);
 
         return "admin-dashboard";
-
     }
 
 }

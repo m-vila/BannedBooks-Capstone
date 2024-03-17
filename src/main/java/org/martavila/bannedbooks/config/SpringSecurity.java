@@ -23,11 +23,12 @@ public class SpringSecurity {
 
         http.csrf((csrf) -> csrf.disable())
                 .authorizeHttpRequests((authz) -> authz
-                                .requestMatchers("/register/**").permitAll()
+                                .requestMatchers("/user-registration/**").permitAll()
                                 .requestMatchers("/css/**", "/js/**", "/img/**", "/font/**").permitAll()
                                 .requestMatchers("/index").permitAll()
                                 .requestMatchers("/books").permitAll()
                                 .requestMatchers("/admin-dashboard").hasRole("ADMIN")
+                                .requestMatchers("/book-registration/**").hasRole("ADMIN")
                 )
                 .formLogin(
                         form -> form
