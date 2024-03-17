@@ -2,8 +2,10 @@ package org.martavila.bannedbooks.controllers;
 
 import java.util.List;
 
+import org.martavila.bannedbooks.controllers.dto.BookDTO;
 import org.martavila.bannedbooks.controllers.dto.UserDTO;
 import org.martavila.bannedbooks.models.User;
+import org.martavila.bannedbooks.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -81,12 +83,5 @@ public class UserAuthController {
 
     }
 
-    //Method is used to handle a list of books
-    @GetMapping("/books")
-    public String books(Model model) {
-
-        return "books";
-
-    }
 }
 
