@@ -1,5 +1,6 @@
 package org.martavila.bannedbooks.config;
 
+import org.martavila.bannedbooks.security.CustomAuthenticationSuccessHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -26,13 +27,13 @@ public class SpringSecurity {
                                 .requestMatchers("/css/**", "/js/**", "/img/**", "/font/**").permitAll()
                                 .requestMatchers("/index").permitAll()
                                 .requestMatchers("/books").permitAll()
-                                .requestMatchers("/users").hasRole("ADMIN")
+                                .requestMatchers("/admin-dashboard").hasRole("ADMIN")
                 )
                 .formLogin(
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/books")
+                                .successHandler(new CustomAuthenticationSuccessHandler())
                                 .permitAll()
                 ).logout(
                         logout -> logout
