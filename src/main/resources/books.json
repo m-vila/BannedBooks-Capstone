@@ -1,0 +1,26 @@
+[
+  {
+    "isbn": "978-1549304002",
+    "title": "Gender Queer: A Memoir",
+    "author": "Maia Kobabe",
+    "year": "2019"
+  },
+  {
+    "isbn": "978-0143137047",
+    "title": "The Color Purple",
+    "author": "Alice Walker",
+    "year": "2022"
+  },
+  {
+    "isbn": "978-0446310789",
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "year": "1960"
+  },
+  {
+    "isbn": "978-0062696120",
+    "title": "Brave New World",
+    "author": "Aldous Huxley",
+    "year": "1931"
+  }
+]
