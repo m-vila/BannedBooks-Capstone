@@ -60,6 +60,20 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public void updateBook(String title, BookDTO bookDTO) {
+        Book book = bookRepository.findByTitle(title);
+
+        if (book == null) {
+            throw new BookNotFoundException("Book not found with title: " + title);
+        }
+
+        book.setIsbn(bookDTO.getIsbn());
+        book.setAuthor(bookDTO.getAuthor());
+        book.setYear(bookDTO.getYear());
+        bookRepository.save(book);
+
+    }
+    @Override
     public void deleteBook(String title) {
         Book book = bookRepository.findByTitle(title);
         if (book != null) {
