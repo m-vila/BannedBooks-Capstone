@@ -13,11 +13,11 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         String role = authentication.getAuthorities().stream().findFirst().get().getAuthority();
         String targetUrl;
         if ("ROLE_USER".equals(role)) {
-            targetUrl = "/books";
+            targetUrl = "/user-dashboard";
         } else if ("ROLE_ADMIN".equals(role)) {
             targetUrl = "/admin-dashboard";
         } else {
-            targetUrl = "/books";
+            targetUrl = "/user-dashboard";
         }
         response.sendRedirect(targetUrl);
     }

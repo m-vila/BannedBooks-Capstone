@@ -70,14 +70,28 @@ public class UserAuthController {
 
     }
 
-    //Method is used to handle the full list of users
+    //Method is used to show the admin dashboard
+    @GetMapping("/user-dashboard")
+    public String showUserDashboard() {
+
+        return "user-dashboard";
+    }
+
+    //Method is used to show the admin dashboard
     @GetMapping("/admin-dashboard")
+    public String showAdminDashboard() {
+
+        return "admin-dashboard";
+    }
+
+    //Method is used to handle the full list of users
+    @GetMapping("/registered-users")
     public String users(Model model) {
         List<UserDTO> users = userService.findAllUsers();
 
         model.addAttribute("users", users);
 
-        return "admin-dashboard";
+        return "registered-users";
     }
 
 }

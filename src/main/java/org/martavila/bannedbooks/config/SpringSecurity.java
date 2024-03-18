@@ -27,8 +27,11 @@ public class SpringSecurity {
                                 .requestMatchers("/css/**", "/js/**", "/img/**", "/font/**").permitAll()
                                 .requestMatchers("/index").permitAll()
                                 .requestMatchers("/books").permitAll()
+                                .requestMatchers("/user-dashboard").permitAll()
                                 .requestMatchers("/admin-dashboard").hasRole("ADMIN")
                                 .requestMatchers("/book-registration/**").hasRole("ADMIN")
+                                .requestMatchers("/registered-users").hasRole("ADMIN")
+                                .requestMatchers("/book-update/**").hasRole("ADMIN")
                 )
                 .formLogin(
                         form -> form
