@@ -73,6 +73,10 @@ body::before {
     margin-top: 50px;
 }
 
+.table-responsive {
+    max-height:400px;
+}
+
 .lead {
     font-size: 25px;
     margin-bottom: 50px;

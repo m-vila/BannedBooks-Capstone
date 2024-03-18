@@ -61,24 +61,26 @@
             <p class="lead">Explore and Discover</p>
         </div>
     </div>
-    <table class="table table-bordered table-hover">
-        <thead class="table-dark">
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Year</th>
-            <th>ISBN</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each = "book : ${books}">
-            <td th:text = "${book.title}"></td>
-            <td th:text = "${book.author}"></td>
-            <td th:text = "${book.year}"></td>
-            <td th:text = "${book.isbn}"></td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+                <th>ISBN</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each = "book : ${books}">
+                <td th:text = "${book.title}"></td>
+                <td th:text = "${book.author}"></td>
+                <td th:text = "${book.year}"></td>
+                <td th:text = "${book.isbn}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>

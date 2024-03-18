@@ -7,12 +7,15 @@
     <link href="/css/styles-admin.css" rel="stylesheet">
     <style>
         .table {
-            background-color: rgba(255, 255, 255, 0.9); /* Change the alpha value to adjust transparency */
+            background-color: rgba(255, 255, 255, 0.9);
             font-size: 20px;
         }
 
         .table-hover tbody tr:hover {
-            background-color: rgba(0, 0, 0, 0.1); /* Hover color with reduced transparency */
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        .table-responsive {
+            max-height:250px;
         }
     </style>
 </head>
@@ -52,36 +55,40 @@
             <p class="lead">Explore and Discover</p>
         </div>
     </div>
-    <table class="table table-bordered table-hover">
-        <thead class="table-dark">
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Year</th>
-            <th>ISBN</th>
-            <th>Update</th>
-            <th>Delete</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each = "book : ${books}">
-            <td th:text = "${book.title}"></td>
-            <td th:text = "${book.author}"></td>
-            <td th:text = "${book.year}"></td>
-            <td th:text = "${book.isbn}"></td>
-            <td>
-                <form>
-                    <button class="btn btn-danger btn-lg btn-block">Update</button>
-                </form>
-            </td>
-            <td>
-                <form th:action="@{'/book-delete/' + ${book.title}}" method="post">
-                    <button type="submit" class="btn btn-danger btn-lg btn-block">Delete</button>
-                </form>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+                <th>ISBN</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each = "book : ${books}">
+                <td th:text = "${book.title}"></td>
+                <td th:text = "${book.author}"></td>
+                <td th:text = "${book.year}"></td>
+                <td th:text = "${book.isbn}"></td>
+                <td>
+                    <form>
+                        <button class="btn btn-danger btn-lg btn-block">Update</button>
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{'/book-delete/' + ${book.title}}" method="post">
+                        <button type="submit" class="btn btn-danger btn-lg btn-block">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-JFqKz2VrZDG2tcscAqvi3+ckbL2gCg/DOTqKmrXdeKw33rXE6C8JvkPZNfYYD2Kx" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-csKb4ksyVQoRt6hycr3WVvRXwV4O7q4QQl3uylNlGzK0f0JwC3jz0u8EGZgM7TAW" crossorigin="anonymous"></script>
 </body>
 </html>
