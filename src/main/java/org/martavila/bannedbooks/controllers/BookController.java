@@ -2,9 +2,7 @@ package org.martavila.bannedbooks.controllers;
 
 import jakarta.validation.Valid;
 import org.martavila.bannedbooks.controllers.dto.BookDTO;
-import org.martavila.bannedbooks.controllers.dto.UserDTO;
 import org.martavila.bannedbooks.models.Book;
-import org.martavila.bannedbooks.models.User;
 import org.martavila.bannedbooks.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,14 +23,25 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    //Method is used to handle the full list of books
-    @GetMapping("/books")
-    public String books(Model model) {
+    //Method is used to handle the full list of books for users
+    @GetMapping("/books-user-list")
+    public String showListBooksUser(Model model) {
         List<BookDTO> books = bookService.findAllBooks();
 
         model.addAttribute("books", books);
 
-        return "books";
+        return "books-user-list";
+
+    }
+
+    //Method is used to handle the full list of books for admin
+    @GetMapping("/books-admin-list")
+    public String showListBooksAdmin(Model model) {
+        List<BookDTO> books = bookService.findAllBooks();
+
+        model.addAttribute("books", books);
+
+        return "books-admin-list";
 
     }
 
