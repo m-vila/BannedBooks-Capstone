@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -79,5 +80,18 @@ public class BookController {
 
     }
 
+    @GetMapping("/book-update")
+    public String showBookUpdate(Model model) {
+        List<BookDTO> books = bookService.findAllBooks();
+
+        model.addAttribute("books", books);
+        return "book-update";
+    }
+
+    @PostMapping("/book-delete/{title}")
+    public String deleteBook(@PathVariable String title) {
+        bookService.deleteBook(title);
+        return "redirect:/book-update";
+    }
 
 }

@@ -1,7 +1,9 @@
 package org.martavila.bannedbooks.services.impl;
 
 import org.martavila.bannedbooks.controllers.dto.BookDTO;
+import org.martavila.bannedbooks.exceptions.BookNotFoundException;
 import org.martavila.bannedbooks.models.Book;
+import org.martavila.bannedbooks.models.Genre;
 import org.martavila.bannedbooks.repositories.BookRepository;
 import org.martavila.bannedbooks.repositories.GenreRepository;
 import org.martavila.bannedbooks.services.BookService;
@@ -56,4 +58,25 @@ public class BookServiceImpl implements BookService {
 
         return bookDTO;
     }
+
+    @Override
+    public void deleteBook(String title) {
+        Book book = bookRepository.findByTitle(title);
+        if (book != null) {
+            //Remove the book from all genres it's associated with
+            for (Genre genre : book.getGenres()) {
+                genre.getBooks().remove(book);
+            }
+            //Clear the list of genres associated with the book
+            book.getGenres().clear();
+            //Save the changes to the genres
+            genreRepository.saveAll(book.getGenres());
+
+            //Now delete the book
+            bookRepository.delete(book);
+        } else {
+            throw new BookNotFoundException("The book you are trying to delete with title " + title + " was not found");
+        }
+    }
+
 }

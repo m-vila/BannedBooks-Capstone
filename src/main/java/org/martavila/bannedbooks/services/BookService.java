@@ -9,4 +9,5 @@ public interface BookService {
     void saveBook (BookDTO bookDTO);
     Book findBookByTitle(String title);
     List<BookDTO> findAllBooks();
+    void deleteBook(String title);
 }
