@@ -20,7 +20,8 @@
             display: none;
         }
         .container{
-            margin-top: 20px;
+            margin-top: 40px;
+            margin-bottom: 100px;
         }
         .card-header{
             margin-top: 10px;
@@ -119,25 +120,25 @@
                 </div>
                 <div class="card-body">
                     <form method="post" role="form" th:action="@{/book-update/save}" th:object="${book}">
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="bookISBN">ISBN:</label>
                             <input type="text" class="form-control" id="bookISBN" name="bookISBN" th:field="*{isbn}">
                             <p th:errors = "*{isbn}" class="text-danger"
                                th:if="${#fields.hasErrors('isbn')}"></p>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="bookTitle">Title:</label>
                             <input type="text" class="form-control" id="bookTitle" name="bookTitle" th:field="*{title}">
                             <p th:errors = "*{title}" class="text-danger"
                                th:if="${#fields.hasErrors('title')}"></p>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="bookAuthor">Author:</label>
                             <input type="text" class="form-control" id="bookAuthor" name="bookAuthor" th:field="*{author}">
                             <p th:errors = "*{author}" class="text-danger"
                                th:if="${#fields.hasErrors('author')}"></p>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="bookYear">Year:</label>
                             <input type="text" class="form-control" id="bookYear" name="bookYear" th:field="*{year}">
                             <p th:errors = "*{year}" class="text-danger"
