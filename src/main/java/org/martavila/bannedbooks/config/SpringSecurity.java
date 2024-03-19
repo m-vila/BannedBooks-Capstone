@@ -45,6 +45,7 @@ public class SpringSecurity {
                                 .requestMatchers("/book-registration/**").hasRole("ADMIN")
                                 .requestMatchers("/registered-users").hasRole("ADMIN")
                                 .requestMatchers("/book-update").hasRole("ADMIN")
+                                .requestMatchers("/book-update/**").hasRole("ADMIN")
                                 .requestMatchers("/book-delete/**").hasRole("ADMIN")
                 )
                 .formLogin(
