@@ -63,12 +63,6 @@ public class BookController {
     public String bookRegistration(@Valid @ModelAttribute("book") BookDTO bookDTO, BindingResult result,
                                    Model model) {
 
-        Book exitingBook = bookService.findBookByTitle(bookDTO.getTitle());
-
-        if (exitingBook != null && exitingBook.getTitle() != null && !exitingBook.getTitle().isEmpty()) {
-            result.rejectValue("title", null, "There is already an book registered under the same title");
-        }
-
         if (result.hasErrors()) {
             model.addAttribute("book", bookDTO);
 
@@ -84,25 +78,33 @@ public class BookController {
     @PostMapping("/book-delete/{title}")
     public String deleteBook(@PathVariable String title) {
         bookService.deleteBook(title);
-        return "redirect:/book-update";
+        return "redirect:/book-update?successDelete";
     }
 
     @GetMapping("/book-update")
     public String showBookUpdate(Model model) {
         List<BookDTO> books = bookService.findAllBooks();
+        BookDTO book = new BookDTO();
 
+        model.addAttribute("book", book);
         model.addAttribute("books", books);
         return "book-update";
     }
 
-    // Method to handle book update form submission
-    @PostMapping("/book-update/{isbn}")
-    public String updateBook(@PathVariable String isbn, @Valid @ModelAttribute("book") BookDTO bookDTO, BindingResult result) {
+    @PostMapping("/book-update/save")
+    public String bookRUpdate(@Valid @ModelAttribute("book") BookDTO bookDTO, BindingResult result,
+                                   Model model) {
 
-        bookService.updateBook(isbn, bookDTO);
+        if (result.hasErrors()) {
+            model.addAttribute("book", bookDTO);
 
-        return "redirect:/books-admin-list";
+            return "book-update";
+        }
+
+        bookService.saveBook(bookDTO);
+
+        return "redirect:/book-update?successUpdate";
+
     }
-
 
 }
