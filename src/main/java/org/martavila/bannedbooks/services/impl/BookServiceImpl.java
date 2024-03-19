@@ -40,11 +40,6 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book findBookByIsbn(String isbn) {
-        return bookRepository.findByIsbn(isbn);
-    }
-
-    @Override
     public List<BookDTO> findAllBooks() {
         List<Book> books = bookRepository.findAll();
 
@@ -62,20 +57,6 @@ public class BookServiceImpl implements BookService {
         bookDTO.setYear(book.getYear());
 
         return bookDTO;
-    }
-
-    @Override
-    public void updateBook(String isbn, BookDTO bookDTO) {
-        Book book = bookRepository.findByIsbn(isbn);
-
-        if (book == null) {
-            throw new BookNotFoundException("Book not found with ISBN: " + isbn);
-        }
-
-        book.setTitle(bookDTO.getTitle());
-        book.setAuthor(bookDTO.getAuthor());
-        book.setYear(bookDTO.getYear());
-        bookRepository.save(book);
     }
 
     @Override

@@ -2,8 +2,6 @@ package org.martavila.bannedbooks.controllers;
 
 import jakarta.validation.Valid;
 import org.martavila.bannedbooks.controllers.dto.BookDTO;
-import org.martavila.bannedbooks.exceptions.BookNotFoundException;
-import org.martavila.bannedbooks.models.Book;
 import org.martavila.bannedbooks.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -92,7 +90,7 @@ public class BookController {
     }
 
     @PostMapping("/book-update/save")
-    public String bookRUpdate(@Valid @ModelAttribute("book") BookDTO bookDTO, BindingResult result,
+    public String bookUpdate(@Valid @ModelAttribute("book") BookDTO bookDTO, BindingResult result,
                                    Model model) {
 
         if (result.hasErrors()) {
