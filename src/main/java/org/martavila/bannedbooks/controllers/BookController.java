@@ -2,6 +2,7 @@ package org.martavila.bannedbooks.controllers;
 
 import jakarta.validation.Valid;
 import org.martavila.bannedbooks.controllers.dto.BookDTO;
+import org.martavila.bannedbooks.exceptions.BookNotFoundException;
 import org.martavila.bannedbooks.models.Book;
 import org.martavila.bannedbooks.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,7 +61,7 @@ public class BookController {
     //Method to handle book registration from submit request
     @PostMapping("/book-registration/save")
     public String bookRegistration(@Valid @ModelAttribute("book") BookDTO bookDTO, BindingResult result,
-                               Model model) {
+                                   Model model) {
 
         Book exitingBook = bookService.findBookByTitle(bookDTO.getTitle());
 
@@ -80,6 +81,12 @@ public class BookController {
 
     }
 
+    @PostMapping("/book-delete/{title}")
+    public String deleteBook(@PathVariable String title) {
+        bookService.deleteBook(title);
+        return "redirect:/book-update";
+    }
+
     @GetMapping("/book-update")
     public String showBookUpdate(Model model) {
         List<BookDTO> books = bookService.findAllBooks();
@@ -88,10 +95,14 @@ public class BookController {
         return "book-update";
     }
 
-    @PostMapping("/book-delete/{title}")
-    public String deleteBook(@PathVariable String title) {
-        bookService.deleteBook(title);
-        return "redirect:/book-update";
+    // Method to handle book update form submission
+    @PostMapping("/book-update/{isbn}")
+    public String updateBook(@PathVariable String isbn, @Valid @ModelAttribute("book") BookDTO bookDTO, BindingResult result) {
+
+        bookService.updateBook(isbn, bookDTO);
+
+        return "redirect:/books-admin-list";
     }
+
 
 }
