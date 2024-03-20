@@ -89,11 +89,9 @@ public class BookController {
         List<BookReadDTO> books = bookService.findAllBooks();
         BookCreateDTO book = new BookCreateDTO();
         List<GenreDTO> genres = genreService.findAllGenres();
-        GenreDTO genre = new GenreDTO();
 
         model.addAttribute("book", book);
         model.addAttribute("books", books);
-        model.addAttribute("genre", genre);
         model.addAttribute("genres", genres);
         return "book-update";
     }

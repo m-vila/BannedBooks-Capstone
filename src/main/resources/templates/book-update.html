@@ -14,7 +14,7 @@
             background-color: rgba(0, 0, 0, 0.1);
         }
         .table-responsive {
-            max-height:270px;
+            max-height:290px;
         }
         .update-form {
             display: none;
@@ -33,6 +33,15 @@
         }
         span, span a{
             margin-left: 5px;
+        }
+
+        .update-btn{
+            background-color: orange;
+            border: none;
+        }
+
+        .update-btn:hover{
+            background-color: darkorange;
         }
     </style>
 </head>
@@ -90,6 +99,7 @@
                 <th>Author</th>
                 <th>Year</th>
                 <th>ISBN</th>
+                <th>Genres</th>
                 <th>Update</th>
                 <th>Delete</th>
             </tr>
@@ -100,6 +110,11 @@
                 <td th:text = "${book.author}"></td>
                 <td th:text = "${book.year}"></td>
                 <td th:text = "${book.isbn}"></td>
+                <td>
+                    <ul>
+                        <li th:each="genre : ${book.genres}" th:text="${genre.name}"></li>
+                    </ul>
+                </td>
                 <td>
                     <button type="button" class="btn btn-danger btn-lg btn-block update-btn">Update</button>
                 </td>
@@ -143,6 +158,12 @@
                             <input type="text" class="form-control" id="bookYear" name="bookYear" th:field="*{year}">
                             <p th:errors = "*{year}" class="text-danger"
                                th:if="${#fields.hasErrors('year')}"></p>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label" for="genres">Genres</label>
+                            <select multiple class="form-control" id="genres" name="genres">
+                                <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}"></option>
+                            </select>
                         </div>
                         <div class="form-group">
                         <button type="submit" class="btn btn-primary">Save</button>
