@@ -1,6 +1,7 @@
 package org.martavila.bannedbooks.controllers;
 
 import jakarta.validation.Valid;
+import org.martavila.bannedbooks.controllers.dto.BookCreateDTO;
 import org.martavila.bannedbooks.controllers.dto.BookDTO;
 import org.martavila.bannedbooks.controllers.dto.GenreDTO;
 import org.martavila.bannedbooks.models.Genre;
@@ -57,10 +58,10 @@ public class BookController {
     @GetMapping("/book-registration")
     public String showBookRegistrationForm(Model model) {
 
-        BookDTO book = new BookDTO();
+        BookCreateDTO createBook = new BookCreateDTO();
         List<GenreDTO> genres = genreService.findAllGenres();
 
-        model.addAttribute("book", book);
+        model.addAttribute("book", createBook);
         model.addAttribute("genres", genres);
 
         return "book-registration";
@@ -68,14 +69,14 @@ public class BookController {
 
     //Method to handle book registration from submit request
     @PostMapping("/book-registration/save")
-    public String bookRegistration(@Valid @ModelAttribute("book") BookDTO bookDTO, @RequestParam(value = "genres", required = false) String[] genreIds, BindingResult result,
+    public String bookRegistration(@Valid @ModelAttribute("book") BookCreateDTO createBook, @RequestParam(value = "genres", required = false) String[] genreIds, BindingResult result,
                                    Model model) {
         if (result.hasErrors()) {
-            model.addAttribute("book", bookDTO);
+            model.addAttribute("book", createBook);
             return "book-registration";
         }
 
-        bookService.saveBook(bookDTO, genreIds);
+        bookService.saveBook(createBook, genreIds);
 
         return "redirect:/book-registration?success";
     }
@@ -89,7 +90,7 @@ public class BookController {
     @GetMapping("/book-update")
     public String showBookUpdate(Model model) {
         List<BookDTO> books = bookService.findAllBooks();
-        BookDTO book = new BookDTO();
+        BookCreateDTO book = new BookCreateDTO();
         List<GenreDTO> genres = genreService.findAllGenres();
         GenreDTO genre = new GenreDTO();
 
@@ -101,7 +102,7 @@ public class BookController {
     }
 
     @PostMapping("/book-update/save")
-    public String bookUpdate(@Valid @ModelAttribute("book") BookDTO bookDTO, @RequestParam(value = "genres", required = false) String[] genreIds, BindingResult result,
+    public String bookUpdate(@Valid @ModelAttribute("book") BookCreateDTO bookDTO, @RequestParam(value = "genres", required = false) String[] genreIds, BindingResult result,
                                    Model model) {
 
         if (result.hasErrors()) {

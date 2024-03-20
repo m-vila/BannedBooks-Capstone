@@ -1,5 +1,6 @@
 package org.martavila.bannedbooks.services.impl;
 
+import org.martavila.bannedbooks.controllers.dto.BookCreateDTO;
 import org.martavila.bannedbooks.controllers.dto.BookDTO;
 import org.martavila.bannedbooks.controllers.dto.GenreDTO;
 import org.martavila.bannedbooks.exceptions.BookNotFoundException;
@@ -26,7 +27,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public void saveBook(BookDTO bookDTO, String[] genreIds) {
+    public void saveBook(BookCreateDTO bookDTO, String[] genreIds) {
         Book book = new Book();
         book.setIsbn(bookDTO.getIsbn());
         book.setTitle(bookDTO.getTitle());
