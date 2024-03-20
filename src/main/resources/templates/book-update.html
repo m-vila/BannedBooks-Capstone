@@ -198,8 +198,10 @@
                 bookYearInput.value = bookYear;
                 bookIsbnInput.value = bookIsbn;
 
+                button.style.backgroundColor = "darkorange";
+
                 const rect = button.getBoundingClientRect();
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollTop = document.documentElement.scrollTop;
                 const topPosition = rect.top + scrollTop + button.offsetHeight;
 
                 updateForm.style.top = `${topPosition}px`;

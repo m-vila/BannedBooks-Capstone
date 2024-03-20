@@ -109,7 +109,6 @@ public class BookController {
         bookService.saveBook(bookDTO, genreIds);
 
         return "redirect:/book-update?successUpdate";
-
     }
 
 }
