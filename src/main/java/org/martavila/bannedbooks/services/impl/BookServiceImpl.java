@@ -64,9 +64,22 @@ public class BookServiceImpl implements BookService {
         bookDTO.setTitle(book.getTitle());
         bookDTO.setAuthor(book.getAuthor());
         bookDTO.setYear(book.getYear());
+        bookDTO.setGenres(book.getGenres().stream()
+                .map(genre -> mapToGenreDTO(genre))
+                .collect(Collectors.toList()));
 
         return bookDTO;
     }
+
+    private GenreDTO mapToGenreDTO(Genre genre) {
+        GenreDTO genreDTO = new GenreDTO();
+
+        genreDTO.setId(genre.getId());
+        genreDTO.setName(genre.getName());
+
+        return genreDTO;
+    }
+
 
     @Override
     public void deleteBook(String title) {

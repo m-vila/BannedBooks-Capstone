@@ -70,7 +70,7 @@
                 <td th:text = "${book.isbn}"></td>
                 <td>
                     <ul>
-                        <li th:each="genre : ${genres}" th:text="${genre.name}"></li>
+                        <li th:each="genre : ${book.genres}" th:text="${genre.name}"></li>
                     </ul>
                 </td>
             </tr>
