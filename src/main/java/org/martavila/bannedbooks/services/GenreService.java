@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface GenreService {
     List<GenreDTO> findAllGenres();
-    Genre findGenreById (Long id);
 }
