@@ -25,7 +25,7 @@ public class BookController {
         this.genreService = genreService;
     }
 
-    //Method is used to handle the full list of books for users
+    // Method to handle displaying the full list of books for users
     @GetMapping("/books-user-list")
     public String showListBooksUser(Model model) {
         List<BookReadDTO> books = bookService.findAllBooks();
@@ -38,7 +38,7 @@ public class BookController {
 
     }
 
-    //Method is used to handle the full list of books for admin
+    // Method to handle displaying the full list of books for admin users
     @GetMapping("/books-admin-list")
     public String showListBooksAdmin(Model model) {
         List<BookReadDTO> books = bookService.findAllBooks();
@@ -51,7 +51,7 @@ public class BookController {
 
     }
 
-    //Method to handle the book registration form request
+    // Method to handle the book registration form request
     @GetMapping("/book-registration")
     public String showBookRegistrationForm(Model model) {
 
@@ -64,7 +64,7 @@ public class BookController {
         return "book-registration";
     }
 
-    //Method to handle book registration from submit request
+    // Method to handle the book registration form submission
     @PostMapping("/book-registration/save")
     public String bookRegistration(@Valid @ModelAttribute("book") BookCreateDTO book, @RequestParam(value = "genres", required = false) String[] genreIds, BindingResult result,
                                    Model model) {
@@ -78,12 +78,14 @@ public class BookController {
         return "redirect:/book-registration?success";
     }
 
+    // Method to handle deleting a book
     @PostMapping("/book-delete/{isbn}")
     public String deleteBook(@PathVariable String isbn) {
         bookService.deleteBook(isbn);
         return "redirect:/book-update?successDelete";
     }
 
+    // Method to show the book update form
     @GetMapping("/book-update")
     public String showBookUpdate(Model model) {
         List<BookReadDTO> books = bookService.findAllBooks();
@@ -96,6 +98,7 @@ public class BookController {
         return "book-update";
     }
 
+    // Method to handle the book update form submission
     @PostMapping("/book-update/save")
     public String bookUpdate(@Valid @ModelAttribute("book") BookCreateDTO bookDTO, @RequestParam(value = "genres", required = false) String[] genreIds, BindingResult result,
                                    Model model) {
@@ -107,7 +110,6 @@ public class BookController {
         }
 
         bookService.saveBook(bookDTO, genreIds);
-
         return "redirect:/book-update?successUpdate";
     }
 

@@ -4,6 +4,11 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 
+/*
+ This DTO class represents the data required
+ to create or update a book.
+ */
+
 @Getter
 @Setter
 public class BookCreateDTO {
