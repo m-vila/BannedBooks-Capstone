@@ -1,7 +1,7 @@
 package org.martavila.bannedbooks.services.impl;
 
 import org.martavila.bannedbooks.controllers.dto.BookCreateDTO;
-import org.martavila.bannedbooks.controllers.dto.BookDTO;
+import org.martavila.bannedbooks.controllers.dto.BookReadDTO;
 import org.martavila.bannedbooks.controllers.dto.GenreDTO;
 import org.martavila.bannedbooks.exceptions.BookNotFoundException;
 import org.martavila.bannedbooks.models.Book;
@@ -50,7 +50,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookDTO> findAllBooks() {
+    public List<BookReadDTO> findAllBooks() {
         List<Book> books = bookRepository.findAll();
 
         return books.stream()
@@ -58,18 +58,18 @@ public class BookServiceImpl implements BookService {
                 .collect(Collectors.toList());
     }
 
-    private BookDTO mapToBookDTO(Book book) {
-        BookDTO bookDTO = new BookDTO();
+    private BookReadDTO mapToBookDTO(Book book) {
+        BookReadDTO bookReadDTO = new BookReadDTO();
 
-        bookDTO.setIsbn(book.getIsbn());
-        bookDTO.setTitle(book.getTitle());
-        bookDTO.setAuthor(book.getAuthor());
-        bookDTO.setYear(book.getYear());
-        bookDTO.setGenres(book.getGenres().stream()
+        bookReadDTO.setIsbn(book.getIsbn());
+        bookReadDTO.setTitle(book.getTitle());
+        bookReadDTO.setAuthor(book.getAuthor());
+        bookReadDTO.setYear(book.getYear());
+        bookReadDTO.setGenres(book.getGenres().stream()
                 .map(genre -> mapToGenreDTO(genre))
                 .collect(Collectors.toList()));
 
-        return bookDTO;
+        return bookReadDTO;
     }
 
     private GenreDTO mapToGenreDTO(Genre genre) {

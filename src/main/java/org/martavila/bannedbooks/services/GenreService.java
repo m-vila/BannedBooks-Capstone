@@ -1,6 +1,5 @@
 package org.martavila.bannedbooks.services;
 
-import org.martavila.bannedbooks.controllers.dto.BookDTO;
 import org.martavila.bannedbooks.controllers.dto.GenreDTO;
 import org.martavila.bannedbooks.models.Genre;
 

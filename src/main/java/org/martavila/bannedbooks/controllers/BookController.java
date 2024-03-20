@@ -2,9 +2,8 @@ package org.martavila.bannedbooks.controllers;
 
 import jakarta.validation.Valid;
 import org.martavila.bannedbooks.controllers.dto.BookCreateDTO;
-import org.martavila.bannedbooks.controllers.dto.BookDTO;
+import org.martavila.bannedbooks.controllers.dto.BookReadDTO;
 import org.martavila.bannedbooks.controllers.dto.GenreDTO;
-import org.martavila.bannedbooks.models.Genre;
 import org.martavila.bannedbooks.services.BookService;
 import org.martavila.bannedbooks.services.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 public class BookController {
@@ -31,7 +28,7 @@ public class BookController {
     //Method is used to handle the full list of books for users
     @GetMapping("/books-user-list")
     public String showListBooksUser(Model model) {
-        List<BookDTO> books = bookService.findAllBooks();
+        List<BookReadDTO> books = bookService.findAllBooks();
         List<GenreDTO> genres = genreService.findAllGenres();
 
         model.addAttribute("books", books);
@@ -44,7 +41,7 @@ public class BookController {
     //Method is used to handle the full list of books for admin
     @GetMapping("/books-admin-list")
     public String showListBooksAdmin(Model model) {
-        List<BookDTO> books = bookService.findAllBooks();
+        List<BookReadDTO> books = bookService.findAllBooks();
         List<GenreDTO> genres = genreService.findAllGenres();
 
         model.addAttribute("books", books);
@@ -58,10 +55,10 @@ public class BookController {
     @GetMapping("/book-registration")
     public String showBookRegistrationForm(Model model) {
 
-        BookCreateDTO createBook = new BookCreateDTO();
+        BookCreateDTO book = new BookCreateDTO();
         List<GenreDTO> genres = genreService.findAllGenres();
 
-        model.addAttribute("book", createBook);
+        model.addAttribute("book", book);
         model.addAttribute("genres", genres);
 
         return "book-registration";
@@ -69,14 +66,14 @@ public class BookController {
 
     //Method to handle book registration from submit request
     @PostMapping("/book-registration/save")
-    public String bookRegistration(@Valid @ModelAttribute("book") BookCreateDTO createBook, @RequestParam(value = "genres", required = false) String[] genreIds, BindingResult result,
+    public String bookRegistration(@Valid @ModelAttribute("book") BookCreateDTO book, @RequestParam(value = "genres", required = false) String[] genreIds, BindingResult result,
                                    Model model) {
         if (result.hasErrors()) {
-            model.addAttribute("book", createBook);
+            model.addAttribute("book", book);
             return "book-registration";
         }
 
-        bookService.saveBook(createBook, genreIds);
+        bookService.saveBook(book, genreIds);
 
         return "redirect:/book-registration?success";
     }
@@ -89,7 +86,7 @@ public class BookController {
 
     @GetMapping("/book-update")
     public String showBookUpdate(Model model) {
-        List<BookDTO> books = bookService.findAllBooks();
+        List<BookReadDTO> books = bookService.findAllBooks();
         BookCreateDTO book = new BookCreateDTO();
         List<GenreDTO> genres = genreService.findAllGenres();
         GenreDTO genre = new GenreDTO();
