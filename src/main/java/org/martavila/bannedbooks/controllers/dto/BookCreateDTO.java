@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class BookDTO {
+public class BookCreateDTO {
     @NotEmpty
     private String isbn;
 

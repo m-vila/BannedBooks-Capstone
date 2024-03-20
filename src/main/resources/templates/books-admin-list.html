@@ -59,6 +59,7 @@
                 <th>Author</th>
                 <th>Year</th>
                 <th>ISBN</th>
+                <th>Genres</th>
             </tr>
             </thead>
             <tbody>
@@ -67,6 +68,11 @@
                 <td th:text = "${book.author}"></td>
                 <td th:text = "${book.year}"></td>
                 <td th:text = "${book.isbn}"></td>
+                <td>
+                    <ul>
+                        <li th:each="genre : ${book.genres}" th:text="${genre.name}"></li>
+                    </ul>
+                </td>
             </tr>
             </tbody>
         </table>
