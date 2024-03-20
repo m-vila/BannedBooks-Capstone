@@ -78,9 +78,9 @@ public class BookController {
         return "redirect:/book-registration?success";
     }
 
-    @PostMapping("/book-delete/{title}")
-    public String deleteBook(@PathVariable String title) {
-        bookService.deleteBook(title);
+    @PostMapping("/book-delete/{isbn}")
+    public String deleteBook(@PathVariable String isbn) {
+        bookService.deleteBook(isbn);
         return "redirect:/book-update?successDelete";
     }
 

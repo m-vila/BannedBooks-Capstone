@@ -83,22 +83,21 @@ public class BookServiceImpl implements BookService {
 
 
     @Override
-    public void deleteBook(String title) {
-        Book book = bookRepository.findByTitle(title);
+    public void deleteBook(String isbn) {
+        Book book = bookRepository.findByIsbn(isbn);
         if (book != null) {
             //Remove the book from all genres it's associated with
             for (Genre genre : book.getGenres()) {
                 genre.getBooks().remove(book);
             }
-            //Clear the list of genres associated with the book
-            book.getGenres().clear();
+
             //Save the changes to the genres
             genreRepository.saveAll(book.getGenres());
 
             //Now delete the book
             bookRepository.delete(book);
         } else {
-            throw new BookNotFoundException("The book you are trying to delete with title " + title + " was not found");
+            throw new BookNotFoundException("The book you are trying to delete with ISBN " + isbn + " was not found");
         }
     }
 

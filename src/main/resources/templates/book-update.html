@@ -119,7 +119,7 @@
                     <button type="button" class="btn btn-danger btn-lg btn-block update-btn">Update</button>
                 </td>
                 <td>
-                    <form th:action="@{'/book-delete/' + ${book.title}}" method="post">
+                    <form th:action="@{'/book-delete/' + ${book.isbn}}" method="post">
                         <button type="submit" class="btn btn-danger btn-lg btn-block">Delete</button>
                     </form>
                 </td>
