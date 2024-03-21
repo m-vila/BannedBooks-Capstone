@@ -28,39 +28,38 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void saveBook(BookCreateDTO bookDTO, String[] genreIds) {
+        // Create a new Book object based on the BookCreateDTO
         Book book = new Book();
         book.setIsbn(bookDTO.getIsbn());
         book.setTitle(bookDTO.getTitle());
         book.setAuthor(bookDTO.getAuthor());
         book.setYear(bookDTO.getYear());
 
+        // Map genreIds to Genre objects and set them to the book's genres
         List<Genre> genres = Arrays.stream(genreIds)
                 .map(Long::parseLong)
                 .map(genreRepository::findGenreById)
                 .collect(Collectors.toList());
-
         book.setGenres(genres);
 
+        // Persist the book to the database
         bookRepository.save(book);
     }
 
     @Override
-    public Book findBookByTitle(String title) {
-        return bookRepository.findByTitle(title);
-    }
-
-    @Override
     public List<BookReadDTO> findAllBooks() {
-        List<Book> books = bookRepository.findAll();
 
+        // Retrieve all books from the database and map them to BookReadDTOs
+        List<Book> books = bookRepository.findAll();
         return books.stream()
                 .map((book) -> mapToBookDTO(book))
                 .collect(Collectors.toList());
     }
 
     private BookReadDTO mapToBookDTO(Book book) {
-        BookReadDTO bookReadDTO = new BookReadDTO();
 
+        // Map a Book object to a BookReadDTO
+        BookReadDTO bookReadDTO = new BookReadDTO();
         bookReadDTO.setIsbn(book.getIsbn());
         bookReadDTO.setTitle(book.getTitle());
         bookReadDTO.setAuthor(book.getAuthor());
@@ -73,8 +72,9 @@ public class BookServiceImpl implements BookService {
     }
 
     private GenreDTO mapToGenreDTO(Genre genre) {
-        GenreDTO genreDTO = new GenreDTO();
 
+        // Map a Genre object to a GenreDTO
+        GenreDTO genreDTO = new GenreDTO();
         genreDTO.setId(genre.getId());
         genreDTO.setName(genre.getName());
 
@@ -84,7 +84,10 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void deleteBook(String isbn) {
+
+        // Find the book by its ISBN
         Book book = bookRepository.findByIsbn(isbn);
+
         if (book != null) {
             //Remove the book from all genres it's associated with
             for (Genre genre : book.getGenres()) {
@@ -97,6 +100,7 @@ public class BookServiceImpl implements BookService {
             //Now delete the book
             bookRepository.delete(book);
         } else {
+            // Throw a custom exception if the book is not found
             throw new BookNotFoundException("The book you are trying to delete with ISBN " + isbn + " was not found");
         }
     }

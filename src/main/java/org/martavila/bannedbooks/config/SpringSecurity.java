@@ -11,13 +11,13 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
- * Spring Security settings
+ * Spring Security Settings
  */
 @Configuration
 @EnableWebSecurity
 public class SpringSecurity {
 
-    //Instance of PasswordEncoder for password encryption
+    // Instance of PasswordEncoder for password encryption
     @Bean
     public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

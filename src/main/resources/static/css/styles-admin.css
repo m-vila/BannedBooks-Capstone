@@ -31,6 +31,7 @@ body{
 .navbar-nav .nav-item {
     margin-right: 30px;
 }
+
 .navbar-nav .nav-link.login-btn {
     color: black;
     background-color: white;
@@ -39,6 +40,7 @@ body{
     padding: 8px 12px;
     transition: all 0.3s;
 }
+
 .navbar-nav .nav-link.login-btn:hover {
     color: white;
     background-color: grey;

@@ -24,21 +24,21 @@ public class UserAuthController {
         this.userService = userService;
     }
 
-    //Method to handle the home (index.html is home) page request
+    // Method to handle the home page request
     @GetMapping("/index")
     public String home() {
 
         return "index";
     }
 
-    //Method handles the login request
+    // Method to handle the login request
     @GetMapping("/login")
     public String login() {
 
         return "login";
     }
 
-    //Method to handle the users registration form request
+    // Method to handle the users registration form request
     @GetMapping("/user-registration")
     public String showRegistrationForm(Model model) {
 
@@ -48,43 +48,47 @@ public class UserAuthController {
         return "user-registration";
     }
 
-    //Method to handle user registration from submit request
+    // Method to handle user registration form submission
     @PostMapping("/user-registration/save")
     public String registration(@Valid @ModelAttribute("user") UserDTO userDto, BindingResult result,
                                Model model) {
+
         User existingUser = userService.findUserByEmail(userDto.getEmail());
 
+        // Check if user with the same email already exists
         if (existingUser != null && existingUser.getEmail() != null && !existingUser.getEmail().isEmpty()) {
             result.rejectValue("email", null, "There is already an account registered under the same email");
         }
 
+        // If there are validation errors, return to the registration form with error messages
         if (result.hasErrors()) {
             model.addAttribute("user", userDto);
 
             return "user-registration";
         }
 
+        // Save the user if no validation errors
         userService.saveUser(userDto);
 
         return "redirect:/user-registration?success";
 
     }
 
-    //Method is used to show the admin dashboard
+    // Method to show the user dashboard
     @GetMapping("/user-dashboard")
     public String showUserDashboard() {
 
         return "user-dashboard";
     }
 
-    //Method is used to show the admin dashboard
+    // Method to show the admin dashboard
     @GetMapping("/admin-dashboard")
     public String showAdminDashboard() {
 
         return "admin-dashboard";
     }
 
-    //Method is used to handle the full list of users
+    // Method to handle displaying the list of registered users
     @GetMapping("/registered-users")
     public String users(Model model) {
         List<UserDTO> users = userService.findAllUsers();

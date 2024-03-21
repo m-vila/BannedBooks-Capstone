@@ -21,24 +21,23 @@ public class GenreServiceImpl implements GenreService {
 
     @Override
     public List<GenreDTO> findAllGenres() {
+        // Retrieve all genres from the repository
         List<Genre> genres = genreRepository.findAll();
 
+        // Map genres to GenreDTOs
         return genres.stream()
                 .map((genre) -> mapToGenreDTO(genre))
                 .collect(Collectors.toList());
     }
 
     private GenreDTO mapToGenreDTO(Genre genre) {
-        GenreDTO genreDTO = new GenreDTO();
 
+        // Map a Genre object to a GenreDTO
+        GenreDTO genreDTO = new GenreDTO();
         genreDTO.setId(genre.getId());
         genreDTO.setName(genre.getName());
 
         return genreDTO;
     }
 
-    @Override
-    public Genre findGenreById(Long id) {
-        return genreRepository.findGenreById(id);
-    }
 }

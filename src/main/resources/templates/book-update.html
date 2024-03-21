@@ -78,7 +78,7 @@
     <div class="row">
         <div class="col text-center">
             <h2>Banned Books</h2>
-            <p class="lead">Explore and Discover</p>
+            <p class="lead">Update or delete any of the books</p>
         </div>
         <div th:if="${param.successUpdate}">
             <div class="alert alert-success">
@@ -132,6 +132,7 @@
             <div class="card">
                 <div class="card-header">
                     <h2 class="text-center">Book Update</h2>
+                    <p class="text-center lead">Use this form to update the book you selected</p>
                 </div>
                 <div class="card-body">
                     <form method="post" role="form" th:action="@{/book-update/save}" th:object="${book}">

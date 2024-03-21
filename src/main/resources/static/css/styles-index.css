@@ -65,10 +65,10 @@ nav a {
 /* Fade-in animation for hovering over menu options*/
 @keyframes fadeIn {
     from {
-        opacity: 0; /* Start with opacity 0 */
+        opacity: 0;
     }
     to {
-        opacity: 1; /* End with opacity 1 */
+        opacity: 1;
     }
 }
 
@@ -315,11 +315,11 @@ nav li:not(:last-child) {
 
 @media only screen and (max-width: 1300px) {
     .main-headline {
-        top: 30%; /* Adjust vertical position */
-        left: 50%; /* Adjust horizontal position */
-        transform: translate(-50%, -50%); /* Recenter the headline */
-        text-align: center; /* Center align the text */
-        padding: 0 20px; /* Add padding to prevent text overlap */
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        padding: 0 20px;
     }
 
     .main-headline h1 {
