@@ -42,7 +42,36 @@
         <img src="https://media.cnn.com/api/v1/images/stellar/prod/230420104537-book-ban-schools-pen-america-reaj.jpg?c=16x9&q=h_833,w_1480,c_fill" alt="banned books covers">
     </section>
 </main>
-
+<!-- Slideshow Featured Work -->
+<div class="slideshow-container">
+    <div class="slideshow-content">
+        <h2>Did you know that this book has been banned?</h2>
+        <div class="mySlides fade">
+            <img src="/img/book1.jpeg" alt="Alice in Wonderland" class="rounded-image" style="width:70%">
+        </div>
+        <div class="mySlides fade">
+            <img src="/img/book2.jpeg" alt="Anne Frank's diary" class="rounded-image" style="width:70%">
+        </div>
+        <div class="mySlides fade">
+            <img src="/img/book3.jpeg" alt="Animal Farm" class="rounded-image" style="width:70%">
+        </div>
+        <div class="mySlides fade">
+            <img src="/img/book4.jpeg" alt="Frankenstein" class="rounded-image" style="width:70%">
+        </div>
+        <div class="mySlides fade">
+            <img src="/img/book5.jpeg" alt="Maus" class="rounded-image" style="width:70%">
+        </div>
+        <div class="mySlides fade">
+            <img src="/img/book6.jpeg" alt="The Wizard of Oz" class="rounded-image" style="width:70%">
+        </div>
+        <div class="mySlides fade">
+            <img src="/img/book7.jpeg" alt="Moby Dick" class="rounded-image" style="width:70%">
+        </div>
+        <div class="mySlides fade">
+            <img src="/img/book8.jpeg" alt="The Color Purple" class="rounded-image" style="width:70%">
+        </div>
+    </div>
+</div>
 
 <!-- Footer -->
 <footer>
@@ -79,7 +108,29 @@
     </div>
     <p class="copyright">Copyright &copy; 2024 PEN America. All rights reserved</p>
 </footer>
+<script>
+    //Slideshow script
+    var slideIndex = 0;
+    showSlides();
 
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 3000);
+    }
+
+    // Function to validate email using regular expression
+    function validateEmail(email) {
+        const re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+</script>
 <!-- External JS script -->
 <script src="/js/script.js"></script>
 </body>

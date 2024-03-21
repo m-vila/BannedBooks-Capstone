@@ -348,6 +348,38 @@ nav li:not(:last-child) {
     }
 }
 
+/* Styles for slideshow */
+.slideshow-container {
+    position: relative;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+}
+
+.slideshow-content {
+    position: relative;
+}
+
+.slideshow-content h2 {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(80%);
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7); /* Optional: Add background color */
+}
+
+.mySlides {
+    display: none;
+}
+
+.rounded-image {
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
 footer{
     background-color: #454343;
 }
