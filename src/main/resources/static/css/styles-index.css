@@ -13,6 +13,7 @@
 body{
     font-family: Neutraface, sans-serif;
     font-weight: normal;
+    background-color: #eeeeee;
 }
 
 /* Header Styles */
@@ -60,6 +61,7 @@ nav a {
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
+    font-size: 18px;
 }
 
 /* Fade-in animation for hovering over menu options*/
@@ -235,9 +237,8 @@ nav a.current:hover {
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
-    font-family: Neutraface;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 .login-button:hover {
@@ -348,6 +349,162 @@ nav li:not(:last-child) {
     }
 }
 
+/* Counter Styles */
+.counter {
+    text-align: center;
+    background-color: #454343;
+    color: white;
+}
+
+.counter .row {
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.counter .row div {
+    flex-basis: 30%;
+}
+
+.counter .row div p {
+    margin: 5px 0;
+}
+
+.counter .row div p:first-child {
+    font-size: 100px;
+}
+
+.counter .row div p:last-child {
+    font-size: 40px;
+}
+
+/* Styles for slideshow */
+.slideshow-container {
+    position: relative;
+    max-width: 500px;
+    margin: auto;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.slideshow-content {
+    position: relative;
+}
+
+.slideshow-header {
+    position: absolute;
+    top: 25%;
+    right: 0;
+    transform: translate(80%);
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}
+
+.slideshow-header h2 {
+    font-family: Neutraface, sans-serif;
+    font-style: italic;
+    font-size: 40px;
+    margin-bottom: 0px;
+}
+
+.slideshow-header h4 {
+    font-family: Neutraface, sans-serif;
+    font-weight: normal;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.mySlides {
+    display: none;
+}
+
+.rounded-image {
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.quote-container {
+    width: 100%;
+    background-color: #d6001c;
+    color: white;
+}
+
+.quote-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+}
+
+blockquote {
+    font-size: 45px;
+    font-style: italic;
+    color: white;
+}
+
+blockquote p {
+    margin-top: 10px;
+    font-size: 20px;
+    font-style: normal;
+}
+
+/* Styles for newsletter */
+.newsletter {
+    padding: 50px;
+    text-align: center;
+}
+
+.newsletter h2 {
+    font-size: 30px;
+}
+
+.newsletter h3 {
+    font-size: 25px;
+}
+
+.input-group {
+    margin-top: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+label {
+    font-size: 1.2em;
+    display: inline-block;
+    width: 70px;
+    text-align: right;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 200px;
+    font-size: 1.2em;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.newsletter .btn{
+    background-color: #d6001c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.newsletter .btn:hover {
+    background-color: black;
+}
+
 footer{
     background-color: #454343;
 }
@@ -355,12 +512,10 @@ footer{
 .location {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: #f9f9f9;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     color: white;
-    background-color: #454343;
 }
 
 .location span {

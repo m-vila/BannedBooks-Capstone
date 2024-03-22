@@ -7,15 +7,15 @@
     <title>Banned Books - Home</title>
     <link href="/css/styles-index.css" rel="stylesheet">
 </head>
-<body>
+<body onload="load()">
 <!-- Header and nav bar -->
 <header class="page-header">
-    <h1>Banned Books</h1>
+    <h1> <a th:href="@{/index}" style="text-decoration: none; color: white;">Banned Books</a></h1>
     <div class="menu-icon">&#9776;</div>
     <nav class="menu">
         <div class="exit-button">&times;</div>
         <ul>
-            <li><a href="index.html" class="current">HOME</a></li>
+            <li><a th:href="@{/index}" class="current">HOME</a></li>
             <li><a href="about.html">ABOUT PEN AMERICA</a></li>
             <li class="dropdown">
                 <a href="#" class="dropbtn">FESTIVAL & EVENTS</a>
@@ -42,6 +42,85 @@
         <img src="https://media.cnn.com/api/v1/images/stellar/prod/230420104537-book-ban-schools-pen-america-reaj.jpg?c=16x9&q=h_833,w_1480,c_fill" alt="banned books covers">
     </section>
 </main>
+
+<!-- Counter -->
+<div class="counter">
+    <div class="row">
+        <div>
+            <p id='bookCount'>0</p>
+            <p>Books</p>
+        </div>
+        <div>
+            <p id='stateCount'>30</p>
+            <p>States</p>
+        </div>
+        <div id='year'>
+            <p>2023</p>
+            <p>Year</p>
+        </div>
+    </div>
+</div>
+
+<!-- Carousel Featured Books -->
+<div class="slideshow-container">
+    <div class="slideshow-content">
+        <div class="slideshow-header">
+            <h2>Did you know... ?</h2>
+            <h4>Yes, they all have been banned <br> in several states within the US</h4>
+        </div>
+        <div class="mySlides fade">
+            <img src="/img/book1.jpg" alt="The Color Purple" class="rounded-image" style="width:70%">
+        </div>
+        <div class="mySlides fade">
+            <img src="/img/book2.jpeg" alt="Anne Frank's diary" class="rounded-image" style="width:70%">
+        </div>
+        <div class="mySlides fade">
+            <img src="/img/book3.jpg" alt="Animal Farm" class="rounded-image" style="width:70%">
+        </div>
+        <div class="mySlides fade">
+            <img src="/img/book4.jpg" alt="Frankenstein" class="rounded-image" style="width:70%">
+        </div>
+        <div class="mySlides fade">
+            <img src="/img/book5.jpeg" alt="Maus" class="rounded-image" style="width:70%">
+        </div>
+        <div class="mySlides fade">
+            <img src="/img/book6.jpeg" alt="The Wizard of Oz" class="rounded-image" style="width:70%">
+        </div>
+        <div class="mySlides fade">
+            <img src="/img/book7.jpeg" alt="Moby Dick" class="rounded-image" style="width:70%">
+        </div>
+        <div class="mySlides fade">
+            <img src="/img/book8.jpg" alt="Alice in Wonderland" class="rounded-image" style="width:70%">
+        </div>
+    </div>
+</div>
+
+<!-- Inspirational quote -->
+<div class="quote-container">
+    <div class="quote-content">
+        <blockquote>
+            "Books Unite Us. <br> Censorship Divides Us"
+            <p>UHD’s W.I. Dykes Library</p>
+        </blockquote>
+    </div>
+</div>
+
+<!-- Newsletter Signup Form -->
+<div class="newsletter">
+    <h2>Do you want to be the first to know about our next event or our latest report?</h2>
+    <h3>Sign up for our newsletter</h3>
+    <form action="submit.php" method="post">
+        <div class="input-group">
+            <label for="fname">Name:</label>
+            <input type="text" id="fname" name="fname" required>
+        </div>
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <input class="btn" type="submit" value="Submit">
+    </form>
+</div>
 
 
 <!-- Footer -->
@@ -70,16 +149,70 @@
         </div>
         <div class="social-media">
             <ul>
-                <li><a href="https://twitter.com/PENamerica"><img src="/img/fa-x.png" alt="X favicon"></a></li>
-                <li><a href="https://www.facebook.com/PENamerica/"><img src="/img/fa-fa.png" alt="Facebook favicon"></a></li>
-                <li><a href="https://www.instagram.com/penamerica/"><img src="/img/fa-ins.jpeg" alt="Instagram favicon"></a></li>
-                <li><a href="https://www.youtube.com/penamericancenter"><img src="/img/fa-you.jpeg" alt="Youtube favicon"></a></li>
+                <li><a href="https://twitter.com/PENamerica" target="_blank"><img src="/img/fa-x.png" alt="X favicon"></a></li>
+                <li><a href="https://www.facebook.com/PENamerica/" target="_blank"><img src="/img/fa-fa.png" alt="Facebook favicon"></a></li>
+                <li><a href="https://www.instagram.com/penamerica/" target="_blank"><img src="/img/fa-ins.jpeg" alt="Instagram favicon"></a></li>
+                <li><a href="https://www.youtube.com/penamericancenter" target="_blank"><img src="/img/fa-you.jpeg" alt="Youtube favicon"></a></li>
             </ul>
         </div>
     </div>
     <p class="copyright">Copyright &copy; 2024 PEN America. All rights reserved</p>
 </footer>
+<script>
+    //Counter
+    function animate(obj, initVal, lastVal, duration) {
+        let startTime = null;
 
+        //get the current timestamp and assign it to the currentTime variable
+        let currentTime = Date.now();
+
+        //pass the current timestamp to the step function
+        const step = (currentTime ) => {
+
+            //if the start time is null, assign the current time to startTime
+            if (!startTime) {
+                startTime = currentTime ;
+            }
+
+            //calculate the value to be used in calculating the number to be displayed
+            const progress = Math.min((currentTime - startTime)/ duration, 1);
+
+            //calculate what to be displayed using the value gotten above
+            obj.innerHTML = Math.floor(progress * (lastVal - initVal) + initVal);
+
+            //checking to make sure the counter does not exceed the last value (lastVal)
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                window.cancelAnimationFrame(window.requestAnimationFrame(step));
+            }
+        };
+        //start animating
+        window.requestAnimationFrame(step);
+    }
+    let text1 = document.getElementById('bookCount');
+    let text2 = document.getElementById('stateCount');
+
+    const load = () => {
+        animate(text1, 0, 1557, 7000);
+        animate(text2, 0, 33, 7000);
+    }
+    //Slideshow script
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 3000);
+    }
+</script>
 <!-- External JS script -->
 <script src="/js/script.js"></script>
 </body>
