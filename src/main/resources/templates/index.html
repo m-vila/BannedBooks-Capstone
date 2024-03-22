@@ -7,10 +7,32 @@
     <title>Banned Books - Home</title>
     <link href="/css/styles-index.css" rel="stylesheet">
     <style>
+        /* Counter Styles */
+        .counter {
+            text-align: center;
+            font-size: 50px;
+            background-color: #454343;
+            color: white;
+        }
 
+        .counter .row {
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .counter .row div {
+            flex-basis: 30%;
+        }
+
+        .counter .row div p {
+            margin: 5px 0;
+        }
     </style>
 </head>
-<body>
+<body onload="load()">
 <!-- Header and nav bar -->
 <header class="page-header">
     <h1>Banned Books</h1>
@@ -46,13 +68,21 @@
     </section>
 </main>
 
-<!-- Inspirational quote -->
-<div class="quote-container">
-    <div class="quote-content">
-        <blockquote>
-            "Books Unite Us. <br> Censorship Divides Us"
-            <footer>UHD’s W.I. Dykes Library</footer>
-        </blockquote>
+<!-- Counter -->
+<div class="counter">
+    <div class="row">
+        <div>
+            <p id='0101'>0</p>
+            <p>Books</p>
+        </div>
+        <div>
+            <p id='0102'>30</p>
+            <p>States</p>
+        </div>
+        <div>
+            <p>2023</p>
+            <p>Year</p>
+        </div>
     </div>
 </div>
 
@@ -95,7 +125,7 @@
     <div class="quote-content">
         <blockquote>
             "Books Unite Us. <br> Censorship Divides Us"
-            <footer>UHD’s W.I. Dykes Library</footer>
+            <p>UHD’s W.I. Dykes Library</p>
         </blockquote>
     </div>
 </div>
@@ -154,6 +184,44 @@
     <p class="copyright">Copyright &copy; 2024 PEN America. All rights reserved</p>
 </footer>
 <script>
+    //Counter
+    function animate(obj, initVal, lastVal, duration) {
+        let startTime = null;
+
+        //get the current timestamp and assign it to the currentTime variable
+        let currentTime = Date.now();
+
+        //pass the current timestamp to the step function
+        const step = (currentTime ) => {
+
+            //if the start time is null, assign the current time to startTime
+            if (!startTime) {
+                startTime = currentTime ;
+            }
+
+            //calculate the value to be used in calculating the number to be displayed
+            const progress = Math.min((currentTime - startTime)/ duration, 1);
+
+            //calculate what to be displayed using the value gotten above
+            obj.innerHTML = Math.floor(progress * (lastVal - initVal) + initVal);
+
+            //checking to make sure the counter does not exceed the last value (lastVal)
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                window.cancelAnimationFrame(window.requestAnimationFrame(step));
+            }
+        };
+        //start animating
+        window.requestAnimationFrame(step);
+    }
+    let text1 = document.getElementById('0101');
+    let text2 = document.getElementById('0102');
+
+    const load = () => {
+        animate(text1, 0, 511, 7000);
+        animate(text2, 0, 232, 7000);
+    }
     //Slideshow script
     var slideIndex = 0;
     showSlides();

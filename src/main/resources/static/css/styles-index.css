@@ -353,7 +353,8 @@ nav li:not(:last-child) {
     position: relative;
     max-width: 500px;
     margin: auto;
-    padding: 20px;
+    padding: 30px;
+    margin-top: 30px;
 }
 
 .slideshow-content {
@@ -395,13 +396,14 @@ nav li:not(:last-child) {
 
 .quote-container {
     width: 100%;
-    background-color: #454343;
+    background-color: #d6001c;
+    color: white;
 }
 
 .quote-content {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
 }
 
@@ -411,7 +413,7 @@ blockquote {
     color: white;
 }
 
-blockquote footer {
+blockquote p {
     margin-top: 10px;
     font-size: 20px;
     font-style: normal;
