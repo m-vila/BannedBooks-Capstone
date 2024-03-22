@@ -6,41 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banned Books - Home</title>
     <link href="/css/styles-index.css" rel="stylesheet">
-    <style>
-        /* Counter Styles */
-        .counter {
-            text-align: center;
-            font-size: 50px;
-            background-color: #454343;
-            color: white;
-        }
-
-        .counter .row {
-            padding: 40px;
-            display: flex;
-            justify-content: space-between;
-            margin: 0 auto;
-            max-width: 600px;
-        }
-
-        .counter .row div {
-            flex-basis: 30%;
-        }
-
-        .counter .row div p {
-            margin: 5px 0;
-        }
-    </style>
 </head>
 <body onload="load()">
 <!-- Header and nav bar -->
 <header class="page-header">
-    <h1>Banned Books</h1>
+    <h1> <a th:href="@{/index}" style="text-decoration: none; color: white;">Banned Books</a></h1>
     <div class="menu-icon">&#9776;</div>
     <nav class="menu">
         <div class="exit-button">&times;</div>
         <ul>
-            <li><a href="index.html" class="current">HOME</a></li>
+            <li><a th:href="@{/index}" class="current">HOME</a></li>
             <li><a href="about.html">ABOUT PEN AMERICA</a></li>
             <li class="dropdown">
                 <a href="#" class="dropbtn">FESTIVAL & EVENTS</a>
@@ -72,14 +47,14 @@
 <div class="counter">
     <div class="row">
         <div>
-            <p id='0101'>0</p>
+            <p id='bookCount'>0</p>
             <p>Books</p>
         </div>
         <div>
-            <p id='0102'>30</p>
+            <p id='stateCount'>30</p>
             <p>States</p>
         </div>
-        <div>
+        <div id='year'>
             <p>2023</p>
             <p>Year</p>
         </div>
@@ -94,7 +69,7 @@
             <h4>Yes, they all have been banned <br> in several states within the US</h4>
         </div>
         <div class="mySlides fade">
-            <img src="/img/book1.jpeg" alt="Alice in Wonderland" class="rounded-image" style="width:70%">
+            <img src="/img/book1.jpg" alt="The Color Purple" class="rounded-image" style="width:70%">
         </div>
         <div class="mySlides fade">
             <img src="/img/book2.jpeg" alt="Anne Frank's diary" class="rounded-image" style="width:70%">
@@ -103,7 +78,7 @@
             <img src="/img/book3.jpeg" alt="Animal Farm" class="rounded-image" style="width:70%">
         </div>
         <div class="mySlides fade">
-            <img src="/img/book4.jpeg" alt="Frankenstein" class="rounded-image" style="width:70%">
+            <img src="/img/book4.jpg" alt="Frankenstein" class="rounded-image" style="width:70%">
         </div>
         <div class="mySlides fade">
             <img src="/img/book5.jpeg" alt="Maus" class="rounded-image" style="width:70%">
@@ -115,7 +90,7 @@
             <img src="/img/book7.jpeg" alt="Moby Dick" class="rounded-image" style="width:70%">
         </div>
         <div class="mySlides fade">
-            <img src="/img/book8.jpeg" alt="The Color Purple" class="rounded-image" style="width:70%">
+            <img src="/img/book8.jpg" alt="Alice in Wonderland" class="rounded-image" style="width:70%">
         </div>
     </div>
 </div>
@@ -215,12 +190,12 @@
         //start animating
         window.requestAnimationFrame(step);
     }
-    let text1 = document.getElementById('0101');
-    let text2 = document.getElementById('0102');
+    let text1 = document.getElementById('bookCount');
+    let text2 = document.getElementById('stateCount');
 
     const load = () => {
-        animate(text1, 0, 511, 7000);
-        animate(text2, 0, 232, 7000);
+        animate(text1, 0, 1557, 7000);
+        animate(text2, 0, 33, 7000);
     }
     //Slideshow script
     var slideIndex = 0;

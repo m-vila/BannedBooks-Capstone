@@ -61,6 +61,7 @@ nav a {
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
+    font-size: 18px;
 }
 
 /* Fade-in animation for hovering over menu options*/
@@ -237,7 +238,7 @@ nav a.current:hover {
     cursor: pointer;
     margin-right: 10px;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 .login-button:hover {
@@ -346,6 +347,38 @@ nav li:not(:last-child) {
         max-width: 100%;
         height: auto;
     }
+}
+
+/* Counter Styles */
+.counter {
+    text-align: center;
+    background-color: #454343;
+    color: white;
+}
+
+.counter .row {
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.counter .row div {
+    flex-basis: 30%;
+}
+
+.counter .row div p {
+    margin: 5px 0;
+}
+
+.counter .row div p:first-child {
+    font-size: 100px;
+}
+
+.counter .row div p:last-child {
+    font-size: 40px;
 }
 
 /* Styles for slideshow */
