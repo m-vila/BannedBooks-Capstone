@@ -360,15 +360,29 @@ nav li:not(:last-child) {
     position: relative;
 }
 
-.slideshow-content h2 {
+.slideshow-header {
     position: absolute;
-    top: 50%;
+    top: 25%;
     right: 0;
     transform: translate(80%);
     text-align: center;
     margin: 0;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.7); /* Optional: Add background color */
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.slideshow-header h2 {
+    font-family: Neutraface, sans-serif;
+    font-weight: normal;
+    font-size: 40px;
+    margin-bottom: 0px;
+}
+
+.slideshow-header h4 {
+    font-family: Neutraface, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 10px;
 }
 
 .mySlides {
