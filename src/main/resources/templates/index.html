@@ -7,29 +7,7 @@
     <title>Banned Books - Home</title>
     <link href="/css/styles-index.css" rel="stylesheet">
     <style>
-        .quote-container {
-            width: 100%;
-            background-color: #454343;
-        }
 
-        .quote-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
-
-        blockquote {
-            font-size: 45px;
-            font-style: italic;
-            color: white;
-        }
-
-        blockquote footer {
-            margin-top: 10px;
-            font-size: 20px;
-            font-style: normal;
-        }
     </style>
 </head>
 <body>
@@ -67,6 +45,7 @@
         <img src="https://media.cnn.com/api/v1/images/stellar/prod/230420104537-book-ban-schools-pen-america-reaj.jpg?c=16x9&q=h_833,w_1480,c_fill" alt="banned books covers">
     </section>
 </main>
+
 <!-- Inspirational quote -->
 <div class="quote-container">
     <div class="quote-content">
@@ -76,6 +55,7 @@
         </blockquote>
     </div>
 </div>
+
 <!-- Carousel Featured Books -->
 <div class="slideshow-container">
     <div class="slideshow-content">
@@ -110,6 +90,34 @@
     </div>
 </div>
 
+<!-- Inspirational quote -->
+<div class="quote-container">
+    <div class="quote-content">
+        <blockquote>
+            "Books Unite Us. <br> Censorship Divides Us"
+            <footer>UHD’s W.I. Dykes Library</footer>
+        </blockquote>
+    </div>
+</div>
+
+<!-- Newsletter Signup Form -->
+<div class="newsletter">
+    <h2>Do you want to be the first to know about our next event or our latest report?</h2>
+    <h3>Sign up for our newsletter</h3>
+    <form action="submit.php" method="post">
+        <div class="input-group">
+            <label for="fname">Name:</label>
+            <input type="text" id="fname" name="fname" required>
+        </div>
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <input class="btn" type="submit" value="Submit">
+    </form>
+</div>
+
+
 <!-- Footer -->
 <footer>
     <div class="location">
@@ -136,10 +144,10 @@
         </div>
         <div class="social-media">
             <ul>
-                <li><a href="https://twitter.com/PENamerica"><img src="/img/fa-x.png" alt="X favicon"></a></li>
-                <li><a href="https://www.facebook.com/PENamerica/"><img src="/img/fa-fa.png" alt="Facebook favicon"></a></li>
-                <li><a href="https://www.instagram.com/penamerica/"><img src="/img/fa-ins.jpeg" alt="Instagram favicon"></a></li>
-                <li><a href="https://www.youtube.com/penamericancenter"><img src="/img/fa-you.jpeg" alt="Youtube favicon"></a></li>
+                <li><a href="https://twitter.com/PENamerica" target="_blank"><img src="/img/fa-x.png" alt="X favicon"></a></li>
+                <li><a href="https://www.facebook.com/PENamerica/" target="_blank"><img src="/img/fa-fa.png" alt="Facebook favicon"></a></li>
+                <li><a href="https://www.instagram.com/penamerica/" target="_blank"><img src="/img/fa-ins.jpeg" alt="Instagram favicon"></a></li>
+                <li><a href="https://www.youtube.com/penamericancenter" target="_blank"><img src="/img/fa-you.jpeg" alt="Youtube favicon"></a></li>
             </ul>
         </div>
     </div>

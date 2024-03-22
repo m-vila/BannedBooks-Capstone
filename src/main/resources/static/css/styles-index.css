@@ -13,6 +13,7 @@
 body{
     font-family: Neutraface, sans-serif;
     font-weight: normal;
+    background-color: #eeeeee;
 }
 
 /* Header Styles */
@@ -235,7 +236,6 @@ nav a.current:hover {
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
-    font-family: Neutraface;
     font-weight: bold;
     font-size: 15px;
 }
@@ -368,7 +368,6 @@ nav li:not(:last-child) {
     text-align: center;
     margin: 0;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .slideshow-header h2 {
@@ -394,6 +393,83 @@ nav li:not(:last-child) {
     margin-bottom: 20px;
 }
 
+.quote-container {
+    width: 100%;
+    background-color: #454343;
+}
+
+.quote-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+blockquote {
+    font-size: 45px;
+    font-style: italic;
+    color: white;
+}
+
+blockquote footer {
+    margin-top: 10px;
+    font-size: 20px;
+    font-style: normal;
+}
+
+/* Styles for newsletter */
+.newsletter {
+    padding: 50px;
+    text-align: center;
+}
+
+.newsletter h2 {
+    font-size: 30px;
+}
+
+.newsletter h3 {
+    font-size: 25px;
+}
+
+.input-group {
+    margin-top: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+label {
+    font-size: 1.2em;
+    display: inline-block;
+    width: 70px;
+    text-align: right;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 200px;
+    font-size: 1.2em;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.newsletter .btn{
+    background-color: #d6001c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.newsletter .btn:hover {
+    background-color: black;
+}
+
 footer{
     background-color: #454343;
 }
@@ -401,12 +477,10 @@ footer{
 .location {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: #f9f9f9;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     color: white;
-    background-color: #454343;
 }
 
 .location span {
