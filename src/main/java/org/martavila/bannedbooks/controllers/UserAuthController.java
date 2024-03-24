@@ -31,6 +31,13 @@ public class UserAuthController {
         return "index";
     }
 
+    // Method to handle the about page request
+    @GetMapping("/about")
+    public String about() {
+
+        return "about";
+    }
+
     // Method to handle the login request
     @GetMapping("/login")
     public String login() {

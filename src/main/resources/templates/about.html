@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banned Books - Home</title>
+    <link href="/css/styles-index.css" rel="stylesheet">
+    <style>
+        .hero {
+            padding-top: 80px;
+        }
+        .hero img {
+            opacity: 1;
+        }
+        .video {
+            padding-top: 40px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video h1 {
+            margin-bottom: 30px;
+        }
+
+        .video-content {
+            font-size: 18px;
+            padding: 20px 20px 40px;
+        }
+
+        .quote-container {
+            background-color: black;
+        }
+
+        /* Styles for the accordion */
+        .accordion-section {
+            font-size: 18px;
+            margin: 60px 110px;
+        }
+        .accordion {
+            margin-top: 20px;
+        }
+
+        .accordion-item {
+            background-color: #f4f4f4;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .accordion-title {
+            display: block;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-title:hover {
+            background-color: #e0e0e0;
+        }
+
+        .accordion-content {
+            padding: 10px 20px;
+            display: none;
+        }
+
+        .accordion-item.active .accordion-title {
+            background-color: #ddd;
+        }
+
+        .accordion-item.active .accordion-content {
+            display: block;
+        }
+        .expand-symbol {
+            float: right; /* Align the symbol to the right */
+        }
+    </style>
+</head>
+<body onload="load()">
+<!-- Header and nav bar -->
+<header class="page-header">
+    <h1> <a th:href="@{/index}" style="text-decoration: none; color: white;">Banned Books</a></h1>
+    <div class="menu-icon">&#9776;</div>
+    <nav class="menu">
+        <div class="exit-button">&times;</div>
+        <ul>
+            <li><a th:href="@{/index}">HOME</a></li>
+            <li><a th:href="@{/about}" class="current">ABOUT PEN AMERICA</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">FESTIVAL & EVENTS</a>
+                <div class="dropdown-content">
+                    <a href="#">Banned Books Week 2024</a>
+                    <a href="#">2024 PEN America Literary Gala</a>
+                </div>
+            </li>
+            <li><a href="contact.html">GIVE</a></li>
+            <li class="login"><a class="login-button" th:href="@{/login}"> LOGIN</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Main section with hero image -->
+<main>
+    <section class="hero">
+        <img src="https://pen.org/wp-content/plugins/phastpress/phast.php?service=images&src=https%3A%2F%2Fpen.org%2Fwp-content%2Fuploads%2F2022%2F06%2FPEN-100-Homepage-Slider.png&cacheMarker=1657544399-352857&token=6abcefc0a5718cde" alt="we stand with the banned">
+    </section>
+</main>
+
+<!-- Video Section -->
+<section class="video">
+    <h1>ABOUT PEN US</h1>
+    <div>
+        <iframe width="800" height="450" src="https://www.youtube.com/embed/tlrq2ueI6Qo?si=4X1Dxjhv8UTB5oR1&amp;controls=0&amp;autoplay=1&amp;mute=1" title="PEN America intro video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="video-content">
+        <p>PEN America stands at the intersection of literature and human rights to protect free expression in the United States and worldwide. We champion the freedom to write, recognizing the power of the word to transform the world. Our mission is to unite writers and their allies to celebrate creative expression and defend the liberties that make it possible.</p>
+        <p>Founded in 1922, PEN America is the largest of the more than 100 centers worldwide that make up the PEN International network. PEN America works to ensure that people everywhere have the freedom to create literature, to convey information and ideas, to express their views, and to access the views, ideas, and literatures of others. Our strength is our Membership—a nationwide community of more than 7,500 novelists, journalists, nonfiction writers, editors, poets, essayists, playwrights, publishers, translators, agents, and other writing professionals, as well as devoted readers and supporters who join with them to carry out PEN America’s mission.</p>
+        <p>PEN America’s programs defend writers, artists, and journalists and protect free expression worldwide. This work includes research and reports on topical issues; advocacy on free expression challenges; campaigns on policy issues and on behalf of individual writers and journalists under threat; year-round festivals and events; literary awards; fellowships; and more.</p>
+        <p>PEN America, a registered 501(c)(3) organization, is headquartered in New York City, with offices in Los Angeles and Washington, D.C. and chapters in 10 regions.</p>
+    </div>
+</section>
+
+<!-- Inspirational Quote -->
+<div class="quote-container">
+    <div class="quote-content">
+        <blockquote>
+            "Any book worth banning <br> is a book worth reading."
+            <p>Isaac Asimov</p>
+        </blockquote>
+    </div>
+</div>
+
+<!-- Fast Facts Section -->
+<section class="accordion-section">
+    <div>
+        <div>
+            <h2 class="section-title">FAST FACTS</h2>
+            <div class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+                <div class="accordion-item " data-accordion-item>
+                    <a href="#" class="accordion-title">When Was PEN America Founded? <span class="expand-symbol">+</span></a>
+                    <div class="accordion-content" data-tab-content>
+                        <p><span style="font-weight: 400;">PEN America formed on April 19, 1922, in New York City and included among its founding Members writers such as </span><b>Willa Cather</b><span style="font-weight: 400;">,</span><b> Eugene O’Neill, Robert Frost, Ellen Glasgow, Edwin Arlington Robinson, Robert Benchley</b><span style="font-weight: 400;">, and, as the first president, </span><b>Booth Tarkington</b><span style="font-weight: 400;">. PEN America’s launch followed by a year the founding of </span><a href="https://pen-international.org/who-we-are/history"><span style="font-weight: 400;">PEN International</span></a><span style="font-weight: 400;"> in London by </span><b>Catherine Amy Dawson-Scott</b><span style="font-weight: 400;">, a British poet, playwright, and peace activist who enlisted the novelist and playwright </span><b>John Galsworthy</b><span style="font-weight: 400;"> as PEN International’s first president. The intent, in the wake of World War I, was to foster international literary fellowship among writers that would transcend national and ethnic divides. PEN America subscribes to the </span><a href="https://pen.org/pen-charter2/"><span style="font-weight: 400;">PEN International Charter</span></a><span style="font-weight: 400;">.</span></p>
+                        <p><em>Find out more about <a href="https://pen.org/pen-history/">PEN America history</a>.</em></p>
+                    </div>
+                </div>
+                <div class="accordion-item " data-accordion-item>
+                    <a href="#" class="accordion-title">What Does PEN Stand for in PEN America? <span class="expand-symbol">+</span></a>
+                    <div class="accordion-content" data-tab-content>
+                        <p><a href="https://pen.org/pen-history/"><span style="font-weight: 400;">Our name</span></a><span style="font-weight: 400;"> was conceived as an acronym: Poets, Essayists, Novelists (later broadened to Poets, Playwrights, Editors, Essayists, Novelists). Over time, as Membership expanded to include a more diverse range of people involved with words and freedom of expression, those categories no longer defined who could join. Today, the “PEN” in PEN America does not represent an acronym.</span></p>
+                    </div>
+                </div>
+                <div class="accordion-item " data-accordion-item>
+                    <a href="#" class="accordion-title">Who Is President of PEN America? <span class="expand-symbol">+</span></a>
+                    <div class="accordion-content" data-tab-content>
+                        <strong><a href="https://pen.org/user/jennifer-boylan/">Jennifer Finney Boylan</a></strong> became president of PEN America in December, 2023. Boylan is the bestselling author of 18 novels and the inaugural Anna Quindlen Writer-in-Residence at Barnard College. She succeeds <strong><a href="https://pen.org/user/ayadakhtar/">Ayad Akhtar,</a> </strong>who<span style="font-weight: 400;"> became president of PEN America in 2020 and remains on the board of trustees.</span></p>
+                        <p><span style="font-weight: 400;">PEN America’s </span><a href="https://pen.org/current-board-of-trustees/"><b>Board of Trustees</b></a><span style="font-weight: 400;"> comprises celebrated writers, artists, and leaders in the fields of publishing, media, technology, law, finance, human rights, and philanthropy.</span></p>
+                    </div>
+                </div>
+                <div class="accordion-item " data-accordion-item>
+                    <a href="#" class="accordion-title">How Many Members Are in PEN America? <span class="expand-symbol">+</span></a>
+                    <div class="accordion-content" data-tab-content>
+                        <p><b>PEN America’s more than </b><a href="https://pen.org/membership/"><b>7,500 Members</b></a><span style="font-weight: 400;"> live in every state. Our </span><a href="https://pen.org/pen-across-america/"><b>PEN Across America</b></a><span style="font-weight: 400;"> initiative, launched in 2018, </span><span style="font-weight: 400;">responds to mounting threats to free expression</span><span style="font-weight: 400;"> with opportunities for Members and their allies to mobilize locally through public programming, campaigns, literary events, workshops, civic forums, and other projects that expand engagement with PEN America’s mission.</span></p>
+                    </div>
+                </div>
+                <div class="accordion-item " data-accordion-item>
+                    <a href="#" class="accordion-title">Who Are Some Notable Writers Associated with PEN America? <span class="expand-symbol">+</span></a>
+                    <div class="accordion-content" data-tab-content>
+                        <p><span style="font-weight: 400;">Many notable writers are past or present Members of PEN America. A small sampling includes </span><b>Chinua Achebe, Chimamanda Ngozi Adichie, Edward Albee, Maya Angelou, Paul Auster, James Baldwin, Saul Bellow, Teju Cole, Don DeLillo, E.L. Doctorow, Roxane Gay, Langston Hughes, Barbara Kingsolver, Norman Mailer, Thomas Mann, Arthur Miller, Marianne Moore, Toni Morrison, Viet Thanh Nguyen, Lynn Nottage, Grace Paley, Philip Roth, Salman Rushdie, Richard Russo, Sam Shepard, Susan Sontag, John Steinbeck, Elizabeth Strout, Anne Tyler, Colson Whitehead,</b><span style="font-weight: 400;"> and many more.</span></p>
+                    </div>
+                </div>
+                <div class="accordion-item " data-accordion-item>
+                    <a href="#" class="accordion-title">What Awards Does PEN America Give Out? <span class="expand-symbol">+</span></a>
+                    <div class="accordion-content" data-tab-content>
+                        <p><span style="font-weight: 400;">PEN America welcomes and celebrates emerging writers whose voices are adding to the literary experience. Among those who have been recognized through PEN America’s Literary Awards or brought forward to new audiences at our public events are </span><b>Hermione Hoby, Morgan Jerkins, Crystal Hana Kim, Alice Sola Kim, Lisa Ko, Layli Long Soldier, Carmen Maria Machado, Darnell L. Moore, Ottessa Moshfegh, Alexis Okeowo, Tommy Orange, Helen Oyeyemi, Tommy Pico, Jenny Zhang,</b><span style="font-weight: 400;"> and</span><b> Ibi Zoboi.</b></p>
+                    </div>
+                </div>
+                <div class="accordion-item " data-accordion-item>
+                    <a href="#" class="accordion-title">Is PEN America Just for Writers? <span class="expand-symbol">+</span></a>
+                    <div class="accordion-content" data-tab-content>
+                        <p><span style="font-weight: 400;">Anyone who believes in free expression or enjoys literary events is welcome to join PEN America. </span></p>
+                        <p><span style="font-weight: 400;">Many others from the literary professions are Members of PEN America, including publishers, editors, translators, screenwriters, and agents, along with important allies among dedicated readers, human rights advocates, civil society activists, and many more who share our dedication to protecting and celebrating free expression.</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="location">
+        <div>
+            <address>
+                <span>PEN America</span>
+                <br>588 Broadway, Suite 303
+                <br>New York, NY 10012
+            </address>
+        </div>
+        <div>
+            <address>
+                <span>PEN America Los Angeles</span>
+                <br>1370 N. St Andrews Place
+                <br>Los Angeles, CA 90028
+            </address>
+        </div>
+        <div>
+            <address>
+                <span>PEN America Washington, D.C.</span>
+                <br>1100 13th Street NW, Suite 800
+                <br>Washington, D.C. 20005
+            </address>
+        </div>
+        <div class="social-media">
+            <ul>
+                <li><a href="https://twitter.com/PENamerica" target="_blank"><img src="/img/fa-x.png" alt="X favicon"></a></li>
+                <li><a href="https://www.facebook.com/PENamerica/" target="_blank"><img src="/img/fa-fa.png" alt="Facebook favicon"></a></li>
+                <li><a href="https://www.instagram.com/penamerica/" target="_blank"><img src="/img/fa-ins.jpeg" alt="Instagram favicon"></a></li>
+                <li><a href="https://www.youtube.com/penamericancenter" target="_blank"><img src="/img/fa-you.jpeg" alt="Youtube favicon"></a></li>
+            </ul>
+        </div>
+    </div>
+    <p class="copyright">Copyright &copy; 2024 PEN America. All rights reserved</p>
+</footer>
+<script>
+    // JavaScript for accordion functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        var accordions = document.querySelectorAll('.accordion');
+
+        accordions.forEach(function(accordion) {
+            accordion.addEventListener('click', function(event) {
+                var target = event.target;
+                var item = target.closest('.accordion-item');
+
+                if (!item) return;
+
+                event.preventDefault();
+
+                var isActive = item.classList.contains('active');
+
+                accordions.forEach(function(acc) {
+                    acc.querySelectorAll('.accordion-item').forEach(function(accItem) {
+                        accItem.classList.remove('active');
+                        accItem.querySelector('.accordion-content').style.display = 'none';
+                    });
+                });
+
+                if (!isActive) {
+                    item.classList.add('active');
+                    item.querySelector('.accordion-content').style.display = 'block';
+                }
+            });
+        });
+    });
+</script>
+<!-- External JS script -->
+<script src="/js/script.js"></script>
+</body>
+</html>
