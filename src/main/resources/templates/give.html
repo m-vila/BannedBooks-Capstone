@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banned Books - Home</title>
+    <link href="/css/styles-index.css" rel="stylesheet">
+    <style>
+        .hero {
+            padding-top: 80px;
+        }
+
+        .hero img {
+            opacity: 1;
+        }
+
+        .donate {
+            padding-top: 40px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .donate-content {
+            font-size: 18px;
+            padding: 20px 20px 40px;
+        }
+
+        blockquote {
+            font-size: 35px;
+        }
+
+        .quote-container {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+<!-- Header and nav bar -->
+<header class="page-header">
+    <h1> <a th:href="@{/index}" style="text-decoration: none; color: white;">Banned Books</a></h1>
+    <div class="menu-icon">&#9776;</div>
+    <nav class="menu">
+        <div class="exit-button">&times;</div>
+        <ul>
+            <li><a th:href="@{/index}">HOME</a></li>
+            <li><a th:href="@{/about}">ABOUT PEN AMERICA</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">FESTIVAL & EVENTS</a>
+                <div class="dropdown-content">
+                    <a href="#">Banned Books Week 2024</a>
+                    <a href="#">2024 PEN America Literary Gala</a>
+                </div>
+            </li>
+            <li><a th:href="@{/give}" class="current">GIVE</a></li>
+            <li class="login"><a class="login-button" th:href="@{/login}"> LOGIN</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Main section with hero image -->
+<main>
+    <section class="hero">
+        <img src="https://pen.org/wp-content/plugins/phastpress/phast.php?service=images&src=https%3A%2F%2Fpen.org%2Fwp-content%2Fuploads%2F2023%2F10%2FFlorida-Office%25E2%2580%2594Hero-Image-1920-%25C3%2597-600-px-3.png&cacheMarker=1696350616-1169821&token=0647aa2c95e20c36" alt="we stand with the banned banner">
+    </section>
+</main>
+
+<!-- Donate Section -->
+<section class="donate">
+    <h1>WHY DONATE TO PEN AMERICA?</h1>
+    <div class="donate-content">
+        <p>PEN America is the leading organization fighting book bans, protecting the freedom to read, and ensuring that people everywhere have the freedom to create literature, convey information and ideas, and express their views. A donation to PEN America supports our work to protect writers and access to books, celebrate literature, and defend free speech. Please join us today.</p>
+        <p>Help us continue to champion the freedom to write and celebrate essential voices of literature by making an online donation to PEN America today, becoming a PEN America Member, making a gift in honor of a loved one, leaving a legacy gift, or supporting one of our signature events.</p>
+    </div>
+</section>
+
+<!-- Inspirational Quote -->
+<div class="quote-container">
+    <div class="quote-content">
+        <blockquote>
+            "If you only read the books that everyone else is reading, <br> you can only think what everyone else is thinking."
+            <p>Haruki Murakami</p>
+        </blockquote>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="location">
+        <div>
+            <address>
+                <span>PEN America</span>
+                <br>588 Broadway, Suite 303
+                <br>New York, NY 10012
+            </address>
+        </div>
+        <div>
+            <address>
+                <span>PEN America Los Angeles</span>
+                <br>1370 N. St Andrews Place
+                <br>Los Angeles, CA 90028
+            </address>
+        </div>
+        <div>
+            <address>
+                <span>PEN America Washington, D.C.</span>
+                <br>1100 13th Street NW, Suite 800
+                <br>Washington, D.C. 20005
+            </address>
+        </div>
+        <div class="social-media">
+            <ul>
+                <li><a href="https://twitter.com/PENamerica" target="_blank"><img src="/img/fa-x.png" alt="X favicon"></a></li>
+                <li><a href="https://www.facebook.com/PENamerica/" target="_blank"><img src="/img/fa-fa.png" alt="Facebook favicon"></a></li>
+                <li><a href="https://www.instagram.com/penamerica/" target="_blank"><img src="/img/fa-ins.jpeg" alt="Instagram favicon"></a></li>
+                <li><a href="https://www.youtube.com/penamericancenter" target="_blank"><img src="/img/fa-you.jpeg" alt="Youtube favicon"></a></li>
+            </ul>
+        </div>
+    </div>
+    <p class="copyright">Copyright &copy; 2024 PEN America. All rights reserved</p>
+</footer>
+<!-- External JS script -->
+<script src="/js/script.js"></script>
+</body>
+</html>

@@ -10,76 +10,17 @@
         .hero {
             padding-top: 80px;
         }
+
         .hero img {
             opacity: 1;
-        }
-        .video {
-            padding-top: 40px;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .video h1 {
-            margin-bottom: 30px;
-        }
-
-        .video-content {
-            font-size: 18px;
-            padding: 20px 20px 40px;
         }
 
         .quote-container {
             background-color: black;
         }
-
-        /* Styles for the accordion */
-        .accordion-section {
-            font-size: 18px;
-            margin: 60px 110px;
-        }
-        .accordion {
-            margin-top: 20px;
-        }
-
-        .accordion-item {
-            background-color: #f4f4f4;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-
-        .accordion-title {
-            display: block;
-            padding: 10px 20px;
-            font-weight: bold;
-            text-decoration: none;
-            color: #333;
-            transition: background-color 0.3s ease;
-        }
-
-        .accordion-title:hover {
-            background-color: #e0e0e0;
-        }
-
-        .accordion-content {
-            padding: 10px 20px;
-            display: none;
-        }
-
-        .accordion-item.active .accordion-title {
-            background-color: #ddd;
-        }
-
-        .accordion-item.active .accordion-content {
-            display: block;
-        }
-        .expand-symbol {
-            float: right; /* Align the symbol to the right */
-        }
     </style>
 </head>
-<body onload="load()">
+<body>
 <!-- Header and nav bar -->
 <header class="page-header">
     <h1> <a th:href="@{/index}" style="text-decoration: none; color: white;">Banned Books</a></h1>
@@ -96,7 +37,7 @@
                     <a href="#">2024 PEN America Literary Gala</a>
                 </div>
             </li>
-            <li><a href="contact.html">GIVE</a></li>
+            <li><a th:href="@{/give}">GIVE</a></li>
             <li class="login"><a class="login-button" th:href="@{/login}"> LOGIN</a></li>
         </ul>
     </nav>
@@ -105,7 +46,7 @@
 <!-- Main section with hero image -->
 <main>
     <section class="hero">
-        <img src="https://pen.org/wp-content/plugins/phastpress/phast.php?service=images&src=https%3A%2F%2Fpen.org%2Fwp-content%2Fuploads%2F2022%2F06%2FPEN-100-Homepage-Slider.png&cacheMarker=1657544399-352857&token=6abcefc0a5718cde" alt="we stand with the banned">
+        <img src="https://pen.org/wp-content/plugins/phastpress/phast.php?service=images&src=https%3A%2F%2Fpen.org%2Fwp-content%2Fuploads%2F2022%2F06%2FPEN-100-Homepage-Slider.png&cacheMarker=1657544399-352857&token=6abcefc0a5718cde" alt="100 anniversary PEN America banner">
     </section>
 </main>
 
@@ -227,6 +168,20 @@
 <script>
     // JavaScript for accordion functionality
     document.addEventListener('DOMContentLoaded', function() {
+
+        var accordionTitles = document.querySelectorAll('.accordion-title');
+
+        accordionTitles.forEach(function(title) {
+            title.addEventListener('click', function() {
+                var symbol = title.querySelector('.expand-symbol');
+                if (symbol.textContent === '+') {
+                    symbol.textContent = '-';
+                } else {
+                    symbol.textContent = '+';
+                }
+            });
+        });
+
         var accordions = document.querySelectorAll('.accordion');
 
         accordions.forEach(function(accordion) {
