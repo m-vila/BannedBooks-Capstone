@@ -38,6 +38,13 @@ public class UserAuthController {
         return "about";
     }
 
+    // Method to handle the give page request
+    @GetMapping("/give")
+    public String give() {
+
+        return "give";
+    }
+
     // Method to handle the login request
     @GetMapping("/login")
     public String login() {

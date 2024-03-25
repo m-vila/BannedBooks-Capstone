@@ -37,7 +37,7 @@ public class SpringSecurity {
                 .authorizeHttpRequests((authz) -> authz
                                 .requestMatchers("/user-registration/**").permitAll()
                                 .requestMatchers("/css/**", "/js/**", "/img/**", "/font/**").permitAll()
-                                .requestMatchers("/index", "/about").permitAll()
+                                .requestMatchers("/index", "/about", "/give").permitAll()
                                 .requestMatchers("/books-user-list").permitAll()
                                 .requestMatchers("/user-dashboard").permitAll()
                                 .requestMatchers("/admin-dashboard").hasRole("ADMIN")

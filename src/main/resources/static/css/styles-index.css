@@ -429,7 +429,7 @@ nav li:not(:last-child) {
 
 .quote-container {
     width: 100%;
-    background-color: #d6001c;
+    background-color: black;
     color: white;
 }
 
@@ -473,7 +473,7 @@ blockquote p {
     font-size: 18px;
 }
 
-label {
+.fields-newsletter {
     font-size: 1.2em;
     display: inline-block;
     width: 70px;
@@ -503,6 +503,70 @@ input[type="email"] {
 
 .newsletter .btn:hover {
     background-color: black;
+}
+
+.video {
+    padding-top: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.video h1 {
+    margin-bottom: 30px;
+}
+
+.video-content {
+    font-size: 18px;
+    padding: 20px 20px 40px;
+}
+
+/* Styles for the accordion */
+.accordion-section {
+    font-size: 18px;
+    margin: 60px 110px;
+}
+.accordion {
+    margin-top: 20px;
+}
+
+.accordion-item {
+    background-color: #f4f4f4;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.accordion-title {
+    display: block;
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-title:hover {
+    background-color: #e0e0e0;
+}
+
+.accordion-content {
+    padding: 10px 20px;
+    display: none;
+}
+
+.accordion-item.active .accordion-title {
+    background-color: #ddd;
+}
+
+.accordion-item.active .accordion-content {
+    display: block;
+}
+
+.expand-symbol {
+    float: right;
+    font-size: 23px;
+    color: #d6001c;
 }
 
 footer{

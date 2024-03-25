@@ -24,7 +24,7 @@
                     <a href="#">2024 PEN America Literary Gala</a>
                 </div>
             </li>
-            <li><a href="contact.html">GIVE</a></li>
+            <li><a th:href="@{/give}">GIVE</a></li>
             <li class="login"><a class="login-button" th:href="@{/login}"> LOGIN</a></li>
         </ul>
     </nav>
@@ -111,11 +111,11 @@
     <h3>Sign up for our newsletter</h3>
     <form action="submit.php" method="post">
         <div class="input-group">
-            <label for="fname">Name:</label>
+            <label class="fields-newsletter" for="fname">Name:</label>
             <input type="text" id="fname" name="fname" required>
         </div>
         <div class="input-group">
-            <label for="email">Email:</label>
+            <label class="fields-newsletter" for="email">Email:</label>
             <input type="email" id="email" name="email" required>
         </div>
         <input class="btn" type="submit" value="Submit">
