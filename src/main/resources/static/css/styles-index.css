@@ -429,7 +429,7 @@ nav li:not(:last-child) {
 
 .quote-container {
     width: 100%;
-    background-color: #d6001c;
+    background-color: black;
     color: white;
 }
 
@@ -473,7 +473,7 @@ blockquote p {
     font-size: 18px;
 }
 
-label {
+.fields-newsletter {
     font-size: 1.2em;
     display: inline-block;
     width: 70px;
@@ -566,6 +566,7 @@ input[type="email"] {
 .expand-symbol {
     float: right;
     font-size: 23px;
+    color: #d6001c;
 }
 
 footer{

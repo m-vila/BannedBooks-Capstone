@@ -25,15 +25,241 @@
 
         .donate-content {
             font-size: 18px;
-            padding: 20px 20px 40px;
+            padding: 0 20px 40px;
         }
 
         blockquote {
-            font-size: 35px;
+            font-size: 31px;
         }
 
         .quote-container {
             background-color: black;
+        }
+
+        /* Styles for Donation Form */
+        .donation-container {
+            height: 450px;
+            font-weight: 500;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .donation-box {
+            width: 410px;
+            height: 400px;
+            background-color: #F5F5F5;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+
+            -webkit-transition: all 0.15s ease-out;
+            -moz-transition: all 0.15s ease-out;
+            -o-transition: all 0.15s ease-out;
+            transition: all 0.15s ease-out;
+        }
+
+        .donation-box .title {
+            background-color: #d6001c;
+            width: 100%;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            color: white;
+            text-align: center;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .donation-box .donate-button {
+            background-color: #d6001c;
+            width: 100%;
+            color: white;
+            text-align: center;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            font-size: 18px;
+            bottom: 0px;
+            position: absolute;
+            cursor: pointer;
+            font-weight: 800;
+        }
+
+        .donation-box .fields {
+            width: 59%;
+            display: block;
+            position: absolute;
+            top: 60px;
+            left: 15px;
+        }
+
+        .donation-box .fields input {
+            width: 90%;
+            font-size: 17px;
+            padding: 10px 0 10px 10px;
+            border-radius: 4px;
+            border-width: 0px;
+            color: #5C5C5C;
+            font-weight: 500;
+            margin-bottom: 10px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .donation-box .amount {
+            width: 30%;
+            display: block;
+            position: absolute;
+            top: 60px;
+            right: 15px;
+        }
+
+        .donation-box .amount .button {
+            width: 100%;
+            background-color: #454343;
+            margin-bottom: 10px;
+            text-align: center;
+            color: white;
+            padding: 15px 0px 15px 0px;
+            border-radius: 4px;
+            font-size: 20px;
+            cursor: pointer;
+
+            -webkit-transition: 400ms background-color;
+            transition: 200ms background-color;
+        }
+
+        .donation-box .amount .button:hover {
+            background-color: dimgrey;
+        }
+
+        .donation-box .amount .button input {
+            min-width: 34px;
+            font-size: 20px;
+            font-weight: 500;
+            border: none;
+            background-color: transparent;
+            color: white;
+            font-size: 20px;
+            font-stretch: normal;
+            font-style: normal;
+            font-variant: normal;
+            border-bottom: 2px dashed white;
+            -webkit-font-smoothing: antialiased;
+
+            -webkit-transition: all 0.15s ease-out;
+            transition: all 0.15s ease-out;
+        }
+
+        .set-amount {
+            max-width: 70px;
+        }
+
+        .switch {
+            position: absolute;
+            top: 190px;
+            left: 15px;
+            margin: 20px auto;
+            height: 26px;
+            width: 58.5%;
+            background: white;
+            border-radius: 3px;
+        }
+
+        .switch-label {
+            position: relative;
+            z-index: 2;
+            float: left;
+            width: 49%;
+            line-height: 26px;
+            font-size: 13px;
+            color: #5C5C5C;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .switch-label:active {
+            font-weight: bold;
+        }
+
+        .switch-label-off {
+            padding-left: 2px;
+        }
+
+        .switch-label-on {
+            padding-right: 2px;
+        }
+
+        .switch-input {
+            display: none;
+        }
+        .switch-input:checked + .switch-label {
+            font-weight: bold;
+            color: rgba(0, 0, 0, 0.65);
+
+            -webkit-transition: 0.15s ease-out;
+            transition: 0.15s ease-out;
+        }
+        .switch-input:checked + .switch-label-on ~ .switch-selection {
+            left: 114px;
+        }
+
+        .switch-selection {
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: 2px;
+            left: 2px;
+            width: 49%;
+            height: 22px;
+            border-radius: 3px;
+            background-color: #d6001c;
+
+            -webkit-transition: left 0.15s ease-out;
+            transition: left 0.15s ease-out;
+        }
+
+        .checkboxes {
+            position: absolute;
+            top: 242px;
+            left: 13px;
+        }
+
+        .checkboxes label {
+            position: relative;
+            top: -8px;
+            font-size: 13px;
+            color: gray;
+        }
+
+        .checkbox {
+            -webkit-appearance: none;
+            background-color: #fafafa;
+            border: 1px solid #d6001c;
+            padding: 9px;
+            border-radius: 3px;
+            display: inline-block;
+            position: relative;
+
+            -webkit-transition: all 0.15s ease-out;
+            transition: all 0.15s ease-out;
+        }
+
+        .checkbox:checked {
+            background-color: #d6001c;
+            border: 1px solid #d6001c;
+            color: white;
+        }
+
+        .checkbox:checked:after {
+            content: '\2714';
+            font-size: 14px;
+            position: absolute;
+            top: 0px;
+            left: 3px;
+            color: white;
         }
     </style>
 </head>
@@ -84,6 +310,60 @@
             <p>Haruki Murakami</p>
         </blockquote>
     </div>
+</div>
+
+<!-- Become a Young Patron Section -->
+<section class="donate">
+    <h1>BECOME A PEN AMERICA YOUNG PATRON</h1>
+    <h3>Young Patrons are supporters in their 20s and 30s who care deeply about PEN America’s mission and are interested in participating in networking events, fundraising, and PEN’s flagship literary events with like-minded peers.</h3>
+    <div class="donate-content">
+        <p>As budding philanthropists, the PEN Young Patrons host a series of events and writer-centric programs that help identify, support, and elevate emerging creative voices whose work stands at the intersection of literary freedom and political engagement.</p>
+        <p>Young Patrons will gain early access and invitations to PEN America’s most exciting events, including the Literary Gala Afterparty, a special Young Patrons networking event at the end of the year, and other opportunities to network with passionate readers, writers, creatives, and defenders of free expression.</p>
+        <p>To join the PEN America Young Patrons, a minimum donation of $110 is required. You can make your tax deductible donation here:</p>
+    </div>
+</section>
+
+<!-- Donation Form -->
+<div class="donation-container">
+
+    <div class="donation-box">
+        <div class="title">Make a donation</div>
+
+        <div class="fields">
+            <input type="text" id="firstName" placeholder="First Name"> </input>
+            <input type="text" id="lastName" placeholder="Last Name"> </input>
+            <input type="text" id="email" placeholder="Email"> </input>
+        </div>
+
+        <div class="amount">
+            <div class="button">$30</div>
+            <div class="button">$50</div>
+            <div class="button">$100</div>
+            <div class="button">$<input type="text" class="set-amount" placeholder=""> </input></div>
+        </div>
+
+        <div class="switch">
+            <input type="radio" class="switch-input" name="view" value="One-Time" id="one-time" checked="">
+            <label for="one-time" class="switch-label switch-label-off">One-Time</label>
+            <input type="radio" class="switch-input" name="view" value="Monthly" id="monthly">
+            <label for="monthly" class="switch-label switch-label-on">Monthly</label>
+            <span class="switch-selection"></span>
+        </div>
+
+        <div class="checkboxes">
+            <input type="checkbox" id="receipt" class="checkbox" />
+            <label for="receipt">Email Me A Receipt</label>
+            <br />
+            <input type="checkbox" id="anon" class="checkbox" />
+            <label for="anon">Give Anonymously</label>
+            <br />
+            <input type="checkbox" id="list" class="checkbox" />
+            <label for="list">Add Me To Email List</label>
+        </div>
+
+        <div class="donate-button"><i class="fa fa-credit-card"></i>Donate Now</div>
+    </div>
+
 </div>
 
 <!-- Footer -->
